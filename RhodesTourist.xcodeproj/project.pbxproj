@@ -76,7 +76,7 @@
 		CA4DB5A01A68554900A2FA58 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
 		CA5AC95019E5C4DB00210E16 /* DrawerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerTableViewController.h; sourceTree = "<group>"; };
 		CA5AC95119E5C4DB00210E16 /* DrawerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerTableViewController.m; sourceTree = "<group>"; };
-		CA9F7DA119B8D00A007CAB02 /* BealeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BealeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA9F7DA119B8D00A007CAB02 /* RhodesTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RhodesTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9F7DA519B8D00A007CAB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9F7DA619B8D00A007CAB02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA9F7DA819B8D00A007CAB02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		CA9F7DAC19B8D00A007CAB02 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CA9F7DAF19B8D00A007CAB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA9F7DB119B8D00A007CAB02 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CA9F7DB719B8D00B007CAB02 /* BealeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BealeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA9F7DB719B8D00B007CAB02 /* RhodesTouristTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RhodesTouristTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9F7DBC19B8D00B007CAB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9F7DBD19B8D00B007CAB02 /* RhodesTouristTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RhodesTouristTests.m; sourceTree = "<group>"; };
 		CA9F7DC719B8D55E007CAB02 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -211,8 +211,8 @@
 		CA9F7DA219B8D00A007CAB02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA9F7DA119B8D00A007CAB02 /* BealeApp.app */,
-				CA9F7DB719B8D00B007CAB02 /* BealeAppTests.xctest */,
+				CA9F7DA119B8D00A007CAB02 /* RhodesTourist.app */,
+				CA9F7DB719B8D00B007CAB02 /* RhodesTouristTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -320,9 +320,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CA9F7DA019B8D00A007CAB02 /* BealeApp */ = {
+		CA9F7DA019B8D00A007CAB02 /* RhodesTourist */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA9F7DC119B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "BealeApp" */;
+			buildConfigurationList = CA9F7DC119B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "RhodesTourist" */;
 			buildPhases = (
 				CA9F7D9D19B8D00A007CAB02 /* Sources */,
 				CA9F7D9E19B8D00A007CAB02 /* Frameworks */,
@@ -332,14 +332,14 @@
 			);
 			dependencies = (
 			);
-			name = BealeApp;
+			name = RhodesTourist;
 			productName = RhodesTourist;
-			productReference = CA9F7DA119B8D00A007CAB02 /* BealeApp.app */;
+			productReference = CA9F7DA119B8D00A007CAB02 /* RhodesTourist.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CA9F7DB619B8D00B007CAB02 /* BealeAppTests */ = {
+		CA9F7DB619B8D00B007CAB02 /* RhodesTouristTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA9F7DC419B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "BealeAppTests" */;
+			buildConfigurationList = CA9F7DC419B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "RhodesTouristTests" */;
 			buildPhases = (
 				CA9F7DB319B8D00B007CAB02 /* Sources */,
 				CA9F7DB419B8D00B007CAB02 /* Frameworks */,
@@ -350,9 +350,9 @@
 			dependencies = (
 				CA9F7DB919B8D00B007CAB02 /* PBXTargetDependency */,
 			);
-			name = BealeAppTests;
+			name = RhodesTouristTests;
 			productName = RhodesTouristTests;
-			productReference = CA9F7DB719B8D00B007CAB02 /* BealeAppTests.xctest */;
+			productReference = CA9F7DB719B8D00B007CAB02 /* RhodesTouristTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -374,7 +374,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CA9F7D9C19B8D00A007CAB02 /* Build configuration list for PBXProject "BealeApp" */;
+			buildConfigurationList = CA9F7D9C19B8D00A007CAB02 /* Build configuration list for PBXProject "RhodesTourist" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -387,8 +387,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA9F7DA019B8D00A007CAB02 /* BealeApp */,
-				CA9F7DB619B8D00B007CAB02 /* BealeAppTests */,
+				CA9F7DA019B8D00A007CAB02 /* RhodesTourist */,
+				CA9F7DB619B8D00B007CAB02 /* RhodesTouristTests */,
 			);
 		};
 /* End PBXProject section */
@@ -465,7 +465,7 @@
 /* Begin PBXTargetDependency section */
 		CA9F7DB919B8D00B007CAB02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA9F7DA019B8D00A007CAB02 /* BealeApp */;
+			target = CA9F7DA019B8D00A007CAB02 /* RhodesTourist */;
 			targetProxy = CA9F7DB819B8D00B007CAB02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -569,7 +569,7 @@
 				INFOPLIST_FILE = RhodesTourist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = BealeApp;
+				PRODUCT_NAME = RhodesTourist;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -583,7 +583,7 @@
 				INFOPLIST_FILE = RhodesTourist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = BealeApp;
+				PRODUCT_NAME = RhodesTourist;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -602,7 +602,7 @@
 				);
 				INFOPLIST_FILE = RhodesTouristTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = BealeAppTests;
+				PRODUCT_NAME = RhodesTouristTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -617,7 +617,7 @@
 				);
 				INFOPLIST_FILE = RhodesTouristTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = BealeAppTests;
+				PRODUCT_NAME = RhodesTouristTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -625,7 +625,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA9F7D9C19B8D00A007CAB02 /* Build configuration list for PBXProject "BealeApp" */ = {
+		CA9F7D9C19B8D00A007CAB02 /* Build configuration list for PBXProject "RhodesTourist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA9F7DBF19B8D00B007CAB02 /* Debug */,
@@ -634,7 +634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA9F7DC119B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "BealeApp" */ = {
+		CA9F7DC119B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "RhodesTourist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA9F7DC219B8D00B007CAB02 /* Debug */,
@@ -643,7 +643,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA9F7DC419B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "BealeAppTests" */ = {
+		CA9F7DC419B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "RhodesTouristTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA9F7DC519B8D00B007CAB02 /* Debug */,

@@ -10,7 +10,9 @@
 #import "Building.h"
 #import "Asset.h"
 @interface AssetCollectionViewController : UICollectionViewController {
+
     NSInteger selectedAsset;
+    
 }
 
 

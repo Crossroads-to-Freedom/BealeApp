@@ -82,7 +82,7 @@
 {
     CGFloat width = 320; //!!!!!!Needs to be frame width... will break on iphone 6 and 6+
     CGFloat angle = -(atan2(deviceMotion.gravity.y, deviceMotion.gravity.x) + M_PI_2);
-    CGFloat y = 350 + 590 * deviceMotion.gravity.z;
+    CGFloat y = 400 + 590 * deviceMotion.gravity.z;
     
     CGFloat offset = [self bearingToBuilding:heading Location:userLocation] - heading;
     if (fabs(offset) > 180)

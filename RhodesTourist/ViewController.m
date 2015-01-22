@@ -173,7 +173,7 @@
                                                  @{@"rds" : [NSNumber numberWithInt:43083], @"type" : [NSNumber numberWithInt:1]},
                                                  @{@"rds" : [NSNumber numberWithInt:60089], @"type" : [NSNumber numberWithInt:1]},
                                                  @{@"rds" : [NSNumber numberWithInt:61259], @"type" : [NSNumber numberWithInt:1]},
-                                                 @{@"rds" : [NSNumber numberWithInt:1183019], @"type" : [NSNumber numberWithInt:1], @"segments" : @[[NSNumber numberWithInteger:6]]},
+                                                 @{@"rds" : [NSNumber numberWithInt:1183019], @"type" : [NSNumber numberWithInt:2], @"segments" : @[[NSNumber numberWithInteger:6]]},
                                                  @{@"rds" : [NSNumber numberWithInt:39576], @"type" : [NSNumber numberWithInt:1]}
                                                  ],
                                    @"bounds" : @[@"35.145698,-89.994940", @"35.145800,-89.994640", @"35.145686,-89.994580", @"35.145584, -89.994882"]
