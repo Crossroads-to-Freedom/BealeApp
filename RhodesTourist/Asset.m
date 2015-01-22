@@ -18,6 +18,8 @@
     return self;
 }
 
+//trying something
+
 - (id)initWithInterview:(NSInteger) rds Segments:(NSArray *) segments{
     if ((self = [super init])) {  
         self.rds = rds;
