@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Drawer.h"
+@interface DrawerTableView : UITableView <UITableViewDataSource, UITableViewDelegate>
 
-@interface DrawerTableViewController : UITableViewController
+@property Drawer * drawerController;
 
 @end

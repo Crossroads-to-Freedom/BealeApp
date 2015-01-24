@@ -6,37 +6,36 @@
 //  Copyright (c) 2014 Apprentice Media LLC. All rights reserved.
 //
 
-#import "DrawerTableViewController.h"
+#import "DrawerTableView.h"
 
-@interface DrawerTableViewController ()
 
-@end
 
-@implementation DrawerTableViewController
+@implementation DrawerTableView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+
+- (id) initWithFrame:(CGRect)frame
+{
+    self.dataSource = self;
+    self.delegate = self;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return [super initWithFrame:frame];
 }
 
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    if (cell == nil || YES) {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell.frame = CGRectMake(0, 0, 100, 100);
         CAGradientLayer *gradient = [CAGradientLayer layer];
         gradient.frame = cell.bounds;
         gradient.colors = [NSArray arrayWithObjects:
@@ -54,16 +53,25 @@
 
         [cell setSelectedBackgroundView:[[UIView alloc] init]];
         [cell.selectedBackgroundView.layer insertSublayer:selectedGrad atIndex:0];
-        if (indexPath.row == 0) {
-            UIImageView * home = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-            home.image = [UIImage imageNamed:@"Home200x200"];
-            [cell addSubview:home];
-        }
         
-    }        
+    }
+    if (indexPath.row == 0) {
+        UIImageView * home = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        home.image = [UIImage imageNamed:@"Home200x200"];
+        [cell addSubview:home];
+    }
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.drawerController drawerInWithView:indexPath.row];
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 6;
+}
 
 /*
 // Override to support conditional editing of the table view.

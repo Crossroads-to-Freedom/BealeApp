@@ -18,7 +18,14 @@
     
     BOOL drawerIn;
     
+    NSInteger topViewNumber;
+    
     //Constants
 }
+@property NSArray * extraViewsToMove;
 
+- (id)initWithMenuView:(UIView *) menu contentViews:(NSArray *) views;
+- (void)drawerInWithView:(NSUInteger) viewNumber;
+- (void)drawerOut;
+- (void)drawerToggle;
 @end

@@ -16,9 +16,11 @@
 #import "CLLocation+Utils.h"
 #import "Alert.h"
 
+#import "DrawerTableView.h"
 #import "VRCameraViewController.h"
-
+#import "PointsOfInterestView.h"
 #import "WifiStatus.h"
+#import "Drawer.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate> {
     NSMutableArray * locations;
@@ -30,6 +32,8 @@
         UILabel * locationName;
     
     VRCameraViewController * cameraView;
+    PointsOfInterestView * pointsOfInterestView;
+    
     
     Building * currentBuilding;
         BOOL alertedCurrentBuilding;
@@ -39,6 +43,8 @@
     CGFloat currentHeading;
     
     //<=========== Drawer
+    Drawer * drawer;
+    DrawerTableView * drawerView;
     BOOL drawerIsIn;
     BOOL sideSwiping;
     

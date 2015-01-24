@@ -49,25 +49,34 @@
     
     locations = [NSMutableArray new];
     
-    drawerIsIn = YES;
     
-    statusBarBackground.layer.zPosition = 10;
+    statusBarBackground.layer.zPosition = 101;
+    
     
     //<============== Create Views
+    drawerView = [[DrawerTableView alloc] initWithFrame:CGRectMake(0, 20, 100, self.view.frame.size.height - 20)];
+    drawerView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    drawerView.separatorColor = [UIColor clearColor];
+    [self.view addSubview:drawerView];
+    
     UIScreenEdgePanGestureRecognizer *edgeGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgeSwipe:)];
     [self.view addGestureRecognizer:edgeGesture];
-    
     //VRCameraView -- this is the view that overlays building and people
     cameraView = [[VRCameraViewController alloc] init];
     cameraView.view.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60);
     cameraView.motionManager = self.motionManager;
     cameraView.locationManager = self.locationManager;
     cameraView.locations = locations;
-    [self.view addSubview:cameraView.view];
+    //[self.view addSubview:cameraView.view];
+    
+    //PointsOfInterestView
+    pointsOfInterestView = [[PointsOfInterestView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60)];
+    [self.view addSubview:pointsOfInterestView];
     
     //Nav Bar
     navBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 40)];
     navBarView.backgroundColor = [UIColor colorWithRed:AC_RED green:AC_GREEN blue:AC_BLUE alpha:1];
+    navBarView.layer.zPosition = 100;
     navBarView.layer.shadowRadius = 5;
     navBarView.layer.shadowOpacity = 0.5;
     navBarView.layer.shadowOffset = CGSizeMake(-5, 3);
@@ -79,9 +88,16 @@
     [navBarView addSubview:locationName];
     
     
+    
+    NSArray * contentViews = @[pointsOfInterestView, cameraView.view];
+    NSArray * extraViews   = @[navBarView];
+    drawer = [[Drawer alloc] initWithMenuView:drawerView contentViews:contentViews];
+    drawer.extraViewsToMove = extraViews;
+    drawerView.drawerController = drawer;
+    
     drawerButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 40, 40)];
     [drawerButton setImage:[UIImage imageNamed:@"Drawer.png"] forState:UIControlStateNormal];
-    [drawerButton addTarget:nil action:@selector(drawer) forControlEvents:UIControlEventTouchUpInside];
+    [drawerButton addTarget:drawer action:@selector(drawerToggle) forControlEvents:UIControlEventTouchUpInside];
     [navBarView addSubview:drawerButton];
     [self.view addSubview:navBarView];
     
@@ -101,7 +117,7 @@
     
     [super viewDidAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
     //Check For Wifi
     if (!wifiStatus.isWiFiEnabled)
@@ -121,7 +137,7 @@
     else return NO; // All is good. Compass is precise enough.
 }
 
-- (void)drawer
+/*- (void)drawer
 {
     if (drawerIsIn) {
         drawerIsIn = NO;
@@ -146,7 +162,7 @@
             
         }];
     }
-}
+}*/
 
 - (void) loadNearbyBuildings
 {
@@ -362,7 +378,7 @@
     if (drawerIsIn){
         //[progressCircle beginProgress];
     }   else if (!drawerIsIn) {
-        [self drawer];
+        //[drawer drawerToggle];
     }
     
     [self myTouch:touches withEvent:event];
