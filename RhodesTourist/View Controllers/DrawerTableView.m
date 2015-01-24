@@ -16,12 +16,15 @@
 
 - (id) initWithFrame:(CGRect)frame
 {
+    
+    self = [super initWithFrame:frame];
     self.dataSource = self;
     self.delegate = self;
     
-    
-    
-    return [super initWithFrame:frame];
+    self.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.separatorColor = [UIColor clearColor];
+    [self selectRowAtIndexPath:0 animated:YES scrollPosition:UITableViewScrollPositionTop];
+    return self;
 }
 
 #pragma mark - Table view data source
@@ -63,7 +66,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.drawerController drawerInWithView:indexPath.row];
 }

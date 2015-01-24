@@ -36,6 +36,8 @@
 		CA7B7CF71A742070005E8CAB /* Home200x200.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B7CF41A742070005E8CAB /* Home200x200.png */; };
 		CA7B7CF81A742070005E8CAB /* SideIcons.psd in Resources */ = {isa = PBXBuildFile; fileRef = CA7B7CF51A742070005E8CAB /* SideIcons.psd */; };
 		CA7B7CFA1A74208D005E8CAB /* thumbnail_280x210.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7B7CF91A74208D005E8CAB /* thumbnail_280x210.jpg */; };
+		CA7B7CFF1A7424FA005E8CAB /* BG1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B7CFE1A7424FA005E8CAB /* BG1.png */; };
+		CA7B7D021A742BFC005E8CAB /* MovingUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7B7D011A742BFC005E8CAB /* MovingUIView.m */; };
 		CA9F7DA719B8D00A007CAB02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DA619B8D00A007CAB02 /* main.m */; };
 		CA9F7DAA19B8D00A007CAB02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DA919B8D00A007CAB02 /* AppDelegate.m */; };
 		CA9F7DB019B8D00A007CAB02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9F7DAE19B8D00A007CAB02 /* Main.storyboard */; };
@@ -113,6 +115,9 @@
 		CA7B7CF41A742070005E8CAB /* Home200x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home200x200.png; sourceTree = "<group>"; };
 		CA7B7CF51A742070005E8CAB /* SideIcons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = SideIcons.psd; sourceTree = "<group>"; };
 		CA7B7CF91A74208D005E8CAB /* thumbnail_280x210.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail_280x210.jpg; sourceTree = "<group>"; };
+		CA7B7CFE1A7424FA005E8CAB /* BG1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG1.png; sourceTree = "<group>"; };
+		CA7B7D001A742BFC005E8CAB /* MovingUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingUIView.h; sourceTree = "<group>"; };
+		CA7B7D011A742BFC005E8CAB /* MovingUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingUIView.m; sourceTree = "<group>"; };
 		CA9F7DA119B8D00A007CAB02 /* RhodesTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RhodesTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9F7DA519B8D00A007CAB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9F7DA619B8D00A007CAB02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -174,6 +179,8 @@
 				CA7B7CA51A73402F005E8CAB /* Drawer.m */,
 				CA7B7CA61A73402F005E8CAB /* ProgressView.h */,
 				CA7B7CA71A73402F005E8CAB /* ProgressView.m */,
+				CA7B7D001A742BFC005E8CAB /* MovingUIView.h */,
+				CA7B7D011A742BFC005E8CAB /* MovingUIView.m */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -267,12 +274,29 @@
 		CA7B7CF21A742070005E8CAB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CA7B7CFD1A7423A4005E8CAB /* Drawer */,
+				CA7B7CFB1A742387005E8CAB /* Backgrounds */,
 				CA7B7CF91A74208D005E8CAB /* thumbnail_280x210.jpg */,
 				CA7B7CF31A742070005E8CAB /* Drawer.png */,
 				CA7B7CF41A742070005E8CAB /* Home200x200.png */,
 				CA7B7CF51A742070005E8CAB /* SideIcons.psd */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		CA7B7CFB1A742387005E8CAB /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				CA7B7CFE1A7424FA005E8CAB /* BG1.png */,
+			);
+			path = Backgrounds;
+			sourceTree = "<group>";
+		};
+		CA7B7CFD1A7423A4005E8CAB /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Drawer;
 			sourceTree = "<group>";
 		};
 		CA9F7D9819B8D00A007CAB02 = {
@@ -430,6 +454,7 @@
 				CA7B7CF61A742070005E8CAB /* Drawer.png in Resources */,
 				CA9F7DB019B8D00A007CAB02 /* Main.storyboard in Resources */,
 				CA49561B19F8BFB300170C1F /* AppIcon180x180.png in Resources */,
+				CA7B7CFF1A7424FA005E8CAB /* BG1.png in Resources */,
 				CA7B7CF81A742070005E8CAB /* SideIcons.psd in Resources */,
 				CA7B7CFA1A74208D005E8CAB /* thumbnail_280x210.jpg in Resources */,
 				CA49561A19F8BFB300170C1F /* AppIcon120x120.png in Resources */,
@@ -478,6 +503,7 @@
 				CA7B7CC61A7340B8005E8CAB /* AFHTTPRequestOperationManager.m in Sources */,
 				CA7B7CC91A7340B8005E8CAB /* AFSecurityPolicy.m in Sources */,
 				CA7B7CE51A7341BB005E8CAB /* DrawerTableView.m in Sources */,
+				CA7B7D021A742BFC005E8CAB /* MovingUIView.m in Sources */,
 				CA7B7CA91A73402F005E8CAB /* Drawer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -55,8 +55,6 @@
     
     //<============== Create Views
     drawerView = [[DrawerTableView alloc] initWithFrame:CGRectMake(0, 20, 100, self.view.frame.size.height - 20)];
-    drawerView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    drawerView.separatorColor = [UIColor clearColor];
     [self.view addSubview:drawerView];
     
     UIScreenEdgePanGestureRecognizer *edgeGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgeSwipe:)];

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MovingUIView.h"
 @interface PointsOfInterestView : UIView {
 
     NSMutableArray * points;
