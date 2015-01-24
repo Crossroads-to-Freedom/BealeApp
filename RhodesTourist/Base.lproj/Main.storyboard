@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yst-Sn-lhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="-264"/>
+            <point key="canvasLocation" x="803" y="-199"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2WE-54-718">
@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wn8-nX-bqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1331" y="-258"/>
+            <point key="canvasLocation" x="1249" y="-199"/>
         </scene>
         <!--Drawer Table View Controller-->
         <scene sceneID="IQh-cb-5y2">
@@ -188,7 +188,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1309" y="553"/>
+            <point key="canvasLocation" x="343" y="-199"/>
         </scene>
         <!--Asset View Controller-->
         <scene sceneID="bdG-I7-QWv">
@@ -317,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLf-sZ-YuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160" y="1236"/>
+            <point key="canvasLocation" x="1698" y="576"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dU3-m4-HDS">
@@ -337,7 +337,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BA9-k9-Xiq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1553" y="1241"/>
+            <point key="canvasLocation" x="1291" y="576"/>
         </scene>
     </scenes>
 </document>

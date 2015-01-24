@@ -18,6 +18,7 @@
 		CA4DB59E1A678A9700A2FA58 /* VRCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DB59D1A678A9700A2FA58 /* VRCameraViewController.m */; };
 		CA4DB5A11A68554900A2FA58 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4DB5A01A68554900A2FA58 /* Alert.m */; };
 		CA5AC95219E5C4DB00210E16 /* DrawerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5AC95119E5C4DB00210E16 /* DrawerTableViewController.m */; };
+		CA7B7BD91A707F81005E8CAB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B7BD81A707F81005E8CAB /* MapViewController.swift */; };
 		CA9F7DA719B8D00A007CAB02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DA619B8D00A007CAB02 /* main.m */; };
 		CA9F7DAA19B8D00A007CAB02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DA919B8D00A007CAB02 /* AppDelegate.m */; };
 		CA9F7DAD19B8D00A007CAB02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DAC19B8D00A007CAB02 /* ViewController.m */; };
@@ -76,6 +77,8 @@
 		CA4DB5A01A68554900A2FA58 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
 		CA5AC95019E5C4DB00210E16 /* DrawerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerTableViewController.h; sourceTree = "<group>"; };
 		CA5AC95119E5C4DB00210E16 /* DrawerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerTableViewController.m; sourceTree = "<group>"; };
+		CA7B7BD51A707F52005E8CAB /* RhodesTourist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RhodesTourist-Bridging-Header.h"; sourceTree = "<group>"; };
+		CA7B7BD81A707F81005E8CAB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CA9F7DA119B8D00A007CAB02 /* RhodesTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RhodesTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9F7DA519B8D00A007CAB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9F7DA619B8D00A007CAB02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				CA5AC95119E5C4DB00210E16 /* DrawerTableViewController.m */,
 				CA4DB59C1A678A9700A2FA58 /* VRCameraViewController.h */,
 				CA4DB59D1A678A9700A2FA58 /* VRCameraViewController.m */,
+				CA7B7BD51A707F52005E8CAB /* RhodesTourist-Bridging-Header.h */,
+				CA7B7BD81A707F81005E8CAB /* MapViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				CABFAB5A19B901CA000EC0B5 /* Building.m in Sources */,
 				CA359AD91A3D098100ED6093 /* WifiStatus.m in Sources */,
 				CAC7D42919CA1055002C0867 /* Asset.m in Sources */,
+				CA7B7BD91A707F81005E8CAB /* MapViewController.swift in Sources */,
 				CAC7D42019CA04CC002C0867 /* AFHTTPSessionManager.m in Sources */,
 				CADD5B1D19BA466F00BABDC7 /* AVCamViewController.m in Sources */,
 				CAC7D42119CA04CC002C0867 /* AFNetworkReachabilityManager.m in Sources */,
@@ -565,11 +571,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RhodesTourist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RhodesTourist;
+				SWIFT_OBJC_BRIDGING_HEADER = "RhodesTourist/RhodesTourist-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -579,11 +588,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = RhodesTourist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RhodesTourist;
+				SWIFT_OBJC_BRIDGING_HEADER = "RhodesTourist/RhodesTourist-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
