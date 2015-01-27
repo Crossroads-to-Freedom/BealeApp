@@ -21,6 +21,7 @@
 #import "PointsOfInterestView.h"
 #import "WifiStatus.h"
 #import "Drawer.h"
+#import "MovingUIView.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate> {
     NSMutableArray * locations;
@@ -30,6 +31,7 @@
     UIView  * navBarView;
         UIButton * drawerButton;
         UILabel * locationName;
+        MovingUIView  * navBarIcon;
     
     VRCameraViewController * cameraView;
     PointsOfInterestView * pointsOfInterestView;
@@ -40,7 +42,7 @@
     Building * viewedBuilding;
     
     
-    CGFloat currentHeading;
+    CGFloat currentAjustedHeading;
     
     //<=========== Drawer
     Drawer * drawer;

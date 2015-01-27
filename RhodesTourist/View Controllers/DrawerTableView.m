@@ -23,7 +23,7 @@
     
     self.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.separatorColor = [UIColor clearColor];
-    [self selectRowAtIndexPath:0 animated:YES scrollPosition:UITableViewScrollPositionTop];
+    
     return self;
 }
 

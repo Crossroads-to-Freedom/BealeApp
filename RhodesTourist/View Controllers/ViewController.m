@@ -55,20 +55,28 @@
     
     //<============== Create Views
     drawerView = [[DrawerTableView alloc] initWithFrame:CGRectMake(0, 20, 100, self.view.frame.size.height - 20)];
+    [drawerView selectRowAtIndexPath:0 animated:YES scrollPosition:UITableViewScrollPositionTop];
     [self.view addSubview:drawerView];
     
     UIScreenEdgePanGestureRecognizer *edgeGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgeSwipe:)];
     [self.view addGestureRecognizer:edgeGesture];
+    //Black Background view used for animations
+    UIView * backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height)];
+    backgroundView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:backgroundView];
     //VRCameraView -- this is the view that overlays building and people
     cameraView = [[VRCameraViewController alloc] init];
     cameraView.view.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60);
     cameraView.motionManager = self.motionManager;
     cameraView.locationManager = self.locationManager;
     cameraView.locations = locations;
+    [cameraView.view addGestureRecognizer:edgeGesture];
     //[self.view addSubview:cameraView.view];
     
     //PointsOfInterestView
     pointsOfInterestView = [[PointsOfInterestView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60)];
+    [pointsOfInterestView addGestureRecognizer:edgeGesture];
+    pointsOfInterestView.delegate = self;
     [self.view addSubview:pointsOfInterestView];
     
     //Nav Bar
@@ -88,7 +96,7 @@
     
     
     NSArray * contentViews = @[pointsOfInterestView, cameraView.view];
-    NSArray * extraViews   = @[navBarView];
+    NSArray * extraViews   = @[navBarView, backgroundView];
     drawer = [[Drawer alloc] initWithMenuView:drawerView contentViews:contentViews];
     drawer.extraViewsToMove = extraViews;
     drawerView.drawerController = drawer;
@@ -103,6 +111,14 @@
     wifiStatus = [WifiStatus new];
     alertManager = [[Alert alloc] initWithSUperView:self.view];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+        selector:@selector(drawerOut:)
+        name:@"DrawerOut"
+        object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+        selector:@selector(drawerIn:)
+        name:@"DrawerIn"
+        object:nil];
     
 }
 
@@ -127,8 +143,59 @@
 
 //Function to show a generic alert
 
+- (void) animateInterestViewToAssetView:(UIButton *) sender
+{
+    MovingUIView * topView = (MovingUIView* )[sender superview];
+    navBarIcon = topView;
+    topView.isMoving = NO;
+    [topView.layer removeAllAnimations];
+    [topView removeFromSuperview];
+    [navBarView addSubview:topView];
+    topView.frame = CGRectMake(topView.frame.origin.x, topView.frame.origin.y + 40, topView.frame.size.width, topView.frame.size.height);
+    topView.layer.zPosition = 102;
+    topView.isMoving = NO;
+    NSLog(@"%ld", (long)sender.tag);
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [topView viewWithTag:100].alpha = 0;
+    }];
+    [UIView animateWithDuration:0.5 animations:^{
+        topView.frame = CGRectMake(self.view.frame.size.width-60, 5, 30, 30);
+        sender.frame = CGRectMake(0, 0, 30, 30);
+        pointsOfInterestView.alpha=0;
+    }];
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    animation.fromValue = [NSNumber numberWithFloat:50.0f];
+    animation.toValue = [NSNumber numberWithFloat:15.0f];
+    animation.duration = 0.5;
+    [topView.layer addAnimation:animation forKey:@"cornerRadius"];
+    [topView.layer setCornerRadius:15.0];
+    [sender.layer addAnimation:animation forKey:@"cornerRadius"];
+    [sender.layer setCornerRadius:15.0];
+}
+
+-(void) drawerOut:(NSNotification *)notification
+{
+    
+}
+
+-(void) drawerIn:(NSNotification *)notification
+{
+    UIView * newView = [[notification userInfo] objectForKey:@"view"];
+    if (newView != cameraView) {
+        [cameraView viewDidDisappear:NO];
+    }
+    if (navBarIcon) {
+        [navBarIcon removeFromSuperview];
+        [pointsOfInterestView returnPoint:navBarIcon];
+    }
+        
+}
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager{
+    return NO; // Prevents annoying calculation window while testing
     if (!self.currentHeading) return YES; // Got nothing, We can assume we got to calibrate.
     else if (self.currentHeading.headingAccuracy <= 0) return YES; // 0 means invalid heading and needs to be calibrated
     else if (self.currentHeading.headingAccuracy > 5)return YES; // over 5 degrees needs to be recalculated
@@ -353,8 +420,8 @@
         for (Building * building in locations) {
             CGFloat width = self.view.frame.size.width;
             CGFloat offset = [building bearingToBuilding:self.locationManager.heading.trueHeading Location:self.locationManager.location] - self.locationManager.heading.trueHeading;
-            if (!currentHeading)
-                currentHeading = self.locationManager.heading.trueHeading;
+            if (!currentAjustedHeading)
+                currentAjustedHeading = self.locationManager.heading.trueHeading;
             if (fabs(offset) > 180)
                 offset = 360 - fabs(offset);
             CGFloat x = 500 + (offset - 90 * sin(angle)) * (width/27); //54 = fov of most cameras (27 is half of 54 because all coordinates are halfed

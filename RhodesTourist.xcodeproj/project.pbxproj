@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA2F30081A7451190036EB79 /* Withers Gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2F30061A7451190036EB79 /* Withers Gallery.png */; };
 		CA49561A19F8BFB300170C1F /* AppIcon120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = CA49561819F8BFB300170C1F /* AppIcon120x120.png */; };
 		CA49561B19F8BFB300170C1F /* AppIcon180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = CA49561919F8BFB300170C1F /* AppIcon180x180.png */; };
 		CA7B7CA81A73402F005E8CAB /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7B7CA31A73402F005E8CAB /* Alert.m */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA2F30061A7451190036EB79 /* Withers Gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Withers Gallery.png"; sourceTree = "<group>"; };
 		CA49561819F8BFB300170C1F /* AppIcon120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon120x120.png; sourceTree = "<group>"; };
 		CA49561919F8BFB300170C1F /* AppIcon180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon180x180.png; sourceTree = "<group>"; };
 		CA7B7CA21A73402F005E8CAB /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alert.h; sourceTree = "<group>"; };
@@ -111,7 +113,7 @@
 		CA7B7CEC1A7341DB005E8CAB /* AssetCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetCollectionViewController.m; sourceTree = "<group>"; };
 		CA7B7CEE1A7342C1005E8CAB /* PointsOfInterestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointsOfInterestView.h; sourceTree = "<group>"; };
 		CA7B7CEF1A7342C1005E8CAB /* PointsOfInterestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointsOfInterestView.m; sourceTree = "<group>"; };
-		CA7B7CF31A742070005E8CAB /* Drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drawer.png; sourceTree = "<group>"; };
+		CA7B7CF31A742070005E8CAB /* Drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Drawer.png; path = RhodesTourist/Images/Drawer.png; sourceTree = SOURCE_ROOT; };
 		CA7B7CF41A742070005E8CAB /* Home200x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home200x200.png; sourceTree = "<group>"; };
 		CA7B7CF51A742070005E8CAB /* SideIcons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = SideIcons.psd; sourceTree = "<group>"; };
 		CA7B7CF91A74208D005E8CAB /* thumbnail_280x210.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail_280x210.jpg; sourceTree = "<group>"; };
@@ -161,6 +163,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA2F30051A7451190036EB79 /* PointsOfInterest */ = {
+			isa = PBXGroup;
+			children = (
+				CA2F30061A7451190036EB79 /* Withers Gallery.png */,
+			);
+			path = PointsOfInterest;
+			sourceTree = "<group>";
+		};
 		CA49561719F8BFB300170C1F /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,10 +284,10 @@
 		CA7B7CF21A742070005E8CAB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CA2F30051A7451190036EB79 /* PointsOfInterest */,
 				CA7B7CFD1A7423A4005E8CAB /* Drawer */,
 				CA7B7CFB1A742387005E8CAB /* Backgrounds */,
 				CA7B7CF91A74208D005E8CAB /* thumbnail_280x210.jpg */,
-				CA7B7CF31A742070005E8CAB /* Drawer.png */,
 				CA7B7CF41A742070005E8CAB /* Home200x200.png */,
 				CA7B7CF51A742070005E8CAB /* SideIcons.psd */,
 			);
@@ -295,6 +305,7 @@
 		CA7B7CFD1A7423A4005E8CAB /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
+				CA7B7CF31A742070005E8CAB /* Drawer.png */,
 			);
 			path = Drawer;
 			sourceTree = "<group>";
@@ -455,6 +466,7 @@
 				CA9F7DB019B8D00A007CAB02 /* Main.storyboard in Resources */,
 				CA49561B19F8BFB300170C1F /* AppIcon180x180.png in Resources */,
 				CA7B7CFF1A7424FA005E8CAB /* BG1.png in Resources */,
+				CA2F30081A7451190036EB79 /* Withers Gallery.png in Resources */,
 				CA7B7CF81A742070005E8CAB /* SideIcons.psd in Resources */,
 				CA7B7CFA1A74208D005E8CAB /* thumbnail_280x210.jpg in Resources */,
 				CA49561A19F8BFB300170C1F /* AppIcon120x120.png in Resources */,
