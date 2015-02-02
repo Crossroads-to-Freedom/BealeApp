@@ -10,6 +10,8 @@
 	<string>RhodesTourist</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>04101981B66E318109934C9516F88D824BB96459</key>
+		<string>https://github.com/ccgus/fmdb.git</string>
 		<key>9BDC1EB757499C0520037238E5985C2568041493</key>
 		<string>github.com:Crossroads-to-Freedom/BealeApp.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>RhodesTourist.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>04101981B66E318109934C9516F88D824BB96459</key>
+		<string>../../../morg5an2/Externals/SQL</string>
 		<key>9BDC1EB757499C0520037238E5985C2568041493</key>
 		<string>../..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>9BDC1EB757499C0520037238E5985C2568041493</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RhodesTourist</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>04101981B66E318109934C9516F88D824BB96459</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SQL</string>
 		</dict>
 	</array>
 </dict>

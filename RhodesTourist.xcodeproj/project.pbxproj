@@ -49,6 +49,14 @@
 		CAC7D42919CA1055002C0867 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC7D42819CA1055002C0867 /* Asset.m */; };
 		CADD5B2019BA469700BABDC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CADD5B1F19BA469700BABDC7 /* AVFoundation.framework */; };
 		CADD5B2219BA469B00BABDC7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CADD5B2119BA469B00BABDC7 /* AssetsLibrary.framework */; };
+		DB50231C1A8017C40048F41C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023121A8017C30048F41C /* FMDatabase.m */; };
+		DB50231D1A8017C40048F41C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023141A8017C30048F41C /* FMDatabaseAdditions.m */; };
+		DB50231E1A8017C40048F41C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023161A8017C30048F41C /* FMDatabasePool.m */; };
+		DB50231F1A8017C40048F41C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023181A8017C30048F41C /* FMDatabaseQueue.m */; };
+		DB5023201A8017C40048F41C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = DB50231B1A8017C40048F41C /* FMResultSet.m */; };
+		DB5023241A8017F90048F41C /* sql.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5023231A8017F90048F41C /* sql.swift */; };
+		DB5023271A80184F0048F41C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5023261A80184F0048F41C /* libsqlite3.dylib */; };
+		DB5023291A8019280048F41C /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5023281A8019280048F41C /* FMDatabaseVariadic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +145,21 @@
 		CAC7D42819CA1055002C0867 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		CADD5B1F19BA469700BABDC7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CADD5B2119BA469B00BABDC7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		DB5023111A8017C30048F41C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = Externals/SQL/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		DB5023121A8017C30048F41C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = Externals/SQL/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		DB5023131A8017C30048F41C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = Externals/SQL/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		DB5023141A8017C30048F41C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = Externals/SQL/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		DB5023151A8017C30048F41C /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = Externals/SQL/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		DB5023161A8017C30048F41C /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = Externals/SQL/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		DB5023171A8017C30048F41C /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = Externals/SQL/src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		DB5023181A8017C30048F41C /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = Externals/SQL/src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		DB5023191A8017C30048F41C /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = Externals/SQL/src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		DB50231A1A8017C30048F41C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = Externals/SQL/src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		DB50231B1A8017C40048F41C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = Externals/SQL/src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		DB5023231A8017F90048F41C /* sql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sql.swift; sourceTree = "<group>"; };
+		DB5023251A80180A0048F41C /* bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
+		DB5023261A80184F0048F41C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		DB5023281A8019280048F41C /* FMDatabaseVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FMDatabaseVariadic.swift; path = "../fmdb-master/src/extra/Swift extensions/FMDatabaseVariadic.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB5023271A80184F0048F41C /* libsqlite3.dylib in Frameworks */,
 				CADD5B2219BA469B00BABDC7 /* AssetsLibrary.framework in Frameworks */,
 				CADD5B2019BA469700BABDC7 /* AVFoundation.framework in Frameworks */,
 				CABFAB5F19B91828000EC0B5 /* CoreMotion.framework in Frameworks */,
@@ -302,6 +326,21 @@
 		CA9F7D9819B8D00A007CAB02 = {
 			isa = PBXGroup;
 			children = (
+				DB5023261A80184F0048F41C /* libsqlite3.dylib */,
+				DB5023231A8017F90048F41C /* sql.swift */,
+				DB5023281A8019280048F41C /* FMDatabaseVariadic.swift */,
+				DB5023251A80180A0048F41C /* bridging.h */,
+				DB5023111A8017C30048F41C /* FMDatabase.h */,
+				DB5023121A8017C30048F41C /* FMDatabase.m */,
+				DB5023131A8017C30048F41C /* FMDatabaseAdditions.h */,
+				DB5023141A8017C30048F41C /* FMDatabaseAdditions.m */,
+				DB5023151A8017C30048F41C /* FMDatabasePool.h */,
+				DB5023161A8017C30048F41C /* FMDatabasePool.m */,
+				DB5023171A8017C30048F41C /* FMDatabaseQueue.h */,
+				DB5023181A8017C30048F41C /* FMDatabaseQueue.m */,
+				DB5023191A8017C30048F41C /* FMDB.h */,
+				DB50231A1A8017C30048F41C /* FMResultSet.h */,
+				DB50231B1A8017C40048F41C /* FMResultSet.m */,
 				CADD5B2119BA469B00BABDC7 /* AssetsLibrary.framework */,
 				CADD5B1F19BA469700BABDC7 /* AVFoundation.framework */,
 				CABFAB5E19B91828000EC0B5 /* CoreMotion.framework */,
@@ -485,13 +524,16 @@
 				CA9F7DA719B8D00A007CAB02 /* main.m in Sources */,
 				CA7B7CE81A7341BB005E8CAB /* AVCamViewController.m in Sources */,
 				CA7B7CAE1A734076005E8CAB /* WifiStatus.m in Sources */,
+				DB50231C1A8017C40048F41C /* FMDatabase.m in Sources */,
 				CA7B7CA81A73402F005E8CAB /* Alert.m in Sources */,
 				CA7B7CC71A7340B8005E8CAB /* AFHTTPSessionManager.m in Sources */,
 				CA7B7CC81A7340B8005E8CAB /* AFNetworkReachabilityManager.m in Sources */,
 				CA7B7CCD1A7340B8005E8CAB /* AFURLSessionManager.m in Sources */,
 				CA7B7CCA1A7340B8005E8CAB /* AFURLConnectionOperation.m in Sources */,
+				DB50231E1A8017C40048F41C /* FMDatabasePool.m in Sources */,
 				CA7B7CED1A7341DB005E8CAB /* AssetCollectionViewController.m in Sources */,
 				CA7B7CEA1A7341BB005E8CAB /* ViewController.m in Sources */,
+				DB5023291A8019280048F41C /* FMDatabaseVariadic.swift in Sources */,
 				CA7B7CCC1A7340B8005E8CAB /* AFURLResponseSerialization.m in Sources */,
 				CA7B7CCE1A7340B8005E8CAB /* UIImageView+AFNetworking.m in Sources */,
 				CA7B7CAA1A73402F005E8CAB /* ProgressView.m in Sources */,
@@ -500,11 +542,15 @@
 				CAC7D42919CA1055002C0867 /* Asset.m in Sources */,
 				CA7B7CE71A7341BB005E8CAB /* AVCamPreviewView.m in Sources */,
 				CA7B7CF01A7342C1005E8CAB /* PointsOfInterestView.m in Sources */,
+				DB50231F1A8017C40048F41C /* FMDatabaseQueue.m in Sources */,
 				CA7B7CC61A7340B8005E8CAB /* AFHTTPRequestOperationManager.m in Sources */,
 				CA7B7CC91A7340B8005E8CAB /* AFSecurityPolicy.m in Sources */,
 				CA7B7CE51A7341BB005E8CAB /* DrawerTableView.m in Sources */,
 				CA7B7D021A742BFC005E8CAB /* MovingUIView.m in Sources */,
+				DB5023241A8017F90048F41C /* sql.swift in Sources */,
+				DB5023201A8017C40048F41C /* FMResultSet.m in Sources */,
 				CA7B7CA91A73402F005E8CAB /* Drawer.m in Sources */,
+				DB50231D1A8017C40048F41C /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +673,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RhodesTourist;
-				SWIFT_OBJC_BRIDGING_HEADER = "RhodesTourist/RhodesTourist-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = bridging.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -644,7 +690,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RhodesTourist;
-				SWIFT_OBJC_BRIDGING_HEADER = "RhodesTourist/RhodesTourist-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
