@@ -48,13 +48,14 @@
 		CAC7D42919CA1055002C0867 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC7D42819CA1055002C0867 /* Asset.m */; };
 		CADD5B2019BA469700BABDC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CADD5B1F19BA469700BABDC7 /* AVFoundation.framework */; };
 		CADD5B2219BA469B00BABDC7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CADD5B2119BA469B00BABDC7 /* AssetsLibrary.framework */; };
+		DB2401FF1A802EAF0056469A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2401FE1A802EAF0056469A /* main.swift */; };
 		DB50231C1A8017C40048F41C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023121A8017C30048F41C /* FMDatabase.m */; };
 		DB50231D1A8017C40048F41C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023141A8017C30048F41C /* FMDatabaseAdditions.m */; };
 		DB50231E1A8017C40048F41C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023161A8017C30048F41C /* FMDatabasePool.m */; };
 		DB50231F1A8017C40048F41C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023181A8017C30048F41C /* FMDatabaseQueue.m */; };
 		DB5023201A8017C40048F41C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = DB50231B1A8017C40048F41C /* FMResultSet.m */; };
 		DB5023271A80184F0048F41C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5023261A80184F0048F41C /* libsqlite3.dylib */; };
-		DB5023311A801C7D0048F41C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5023301A801C7D0048F41C /* main.swift */; };
+		DB5023311A801C7D0048F41C /* sql.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5023301A801C7D0048F41C /* sql.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,8 @@
 		CAC7D42819CA1055002C0867 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		CADD5B1F19BA469700BABDC7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CADD5B2119BA469B00BABDC7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		DB2401FB1A802D460056469A /* bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
+		DB2401FE1A802EAF0056469A /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		DB5023111A8017C30048F41C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = Externals/SQL/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
 		DB5023121A8017C30048F41C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = Externals/SQL/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
 		DB5023131A8017C30048F41C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = Externals/SQL/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -153,9 +156,8 @@
 		DB5023191A8017C30048F41C /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = Externals/SQL/src/fmdb/FMDB.h; sourceTree = "<group>"; };
 		DB50231A1A8017C30048F41C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = Externals/SQL/src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
 		DB50231B1A8017C40048F41C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = Externals/SQL/src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
-		DB5023251A80180A0048F41C /* bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
 		DB5023261A80184F0048F41C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		DB5023301A801C7D0048F41C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		DB5023301A801C7D0048F41C /* sql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sql.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,7 +325,6 @@
 			isa = PBXGroup;
 			children = (
 				DB5023261A80184F0048F41C /* libsqlite3.dylib */,
-				DB5023251A80180A0048F41C /* bridging.h */,
 				DB5023111A8017C30048F41C /* FMDatabase.h */,
 				DB5023121A8017C30048F41C /* FMDatabase.m */,
 				DB5023131A8017C30048F41C /* FMDatabaseAdditions.h */,
@@ -358,6 +359,8 @@
 		CA9F7DA319B8D00A007CAB02 /* RhodesTourist */ = {
 			isa = PBXGroup;
 			children = (
+				DB2401FE1A802EAF0056469A /* main.swift */,
+				DB2401FB1A802D460056469A /* bridging.h */,
 				CA7B7CAB1A734052005E8CAB /* Utility */,
 				CA7B7CA11A733FE8005E8CAB /* Interface */,
 				CA7B7CD21A7341BB005E8CAB /* View Controllers */,
@@ -365,7 +368,7 @@
 				CA9F7DAE19B8D00A007CAB02 /* Main.storyboard */,
 				CA9F7DA819B8D00A007CAB02 /* AppDelegate.h */,
 				CA9F7DA919B8D00A007CAB02 /* AppDelegate.m */,
-				DB5023301A801C7D0048F41C /* main.swift */,
+				DB5023301A801C7D0048F41C /* sql.swift */,
 				CABFAB5819B901CA000EC0B5 /* Building.h */,
 				CABFAB5919B901CA000EC0B5 /* Building.m */,
 				CAC7D42719CA1055002C0867 /* Asset.h */,
@@ -452,7 +455,7 @@
 				TargetAttributes = {
 					CA9F7DA019B8D00A007CAB02 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 65UT5H6UZR;
+						DevelopmentTeam = SKR86JPKN3;
 					};
 					CA9F7DB619B8D00B007CAB02 = {
 						CreatedOnToolsVersion = 6.0;
@@ -512,6 +515,7 @@
 			files = (
 				CA7B7CC51A7340B8005E8CAB /* AFHTTPRequestOperation.m in Sources */,
 				CA7B7CE91A7341BB005E8CAB /* VRCameraViewController.m in Sources */,
+				DB2401FF1A802EAF0056469A /* main.swift in Sources */,
 				CA7B7CE41A7341BB005E8CAB /* AssetViewController.m in Sources */,
 				CA7B7CD11A7340D9005E8CAB /* CLLocation+Utils.m in Sources */,
 				CA9F7DAA19B8D00A007CAB02 /* AppDelegate.m in Sources */,
@@ -533,7 +537,7 @@
 				CABFAB5A19B901CA000EC0B5 /* Building.m in Sources */,
 				CAC7D42919CA1055002C0867 /* Asset.m in Sources */,
 				CA7B7CE71A7341BB005E8CAB /* AVCamPreviewView.m in Sources */,
-				DB5023311A801C7D0048F41C /* main.swift in Sources */,
+				DB5023311A801C7D0048F41C /* sql.swift in Sources */,
 				CA7B7CF01A7342C1005E8CAB /* PointsOfInterestView.m in Sources */,
 				DB50231F1A8017C40048F41C /* FMDatabaseQueue.m in Sources */,
 				CA7B7CC61A7340B8005E8CAB /* AFHTTPRequestOperationManager.m in Sources */,
@@ -665,7 +669,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RhodesTourist;
-				SWIFT_OBJC_BRIDGING_HEADER = bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = RhodesTourist/bridging.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -682,7 +686,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RhodesTourist;
-				SWIFT_OBJC_BRIDGING_HEADER = bridging.h;
+				SWIFT_OBJC_BRIDGING_HEADER = RhodesTourist/bridging.h;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

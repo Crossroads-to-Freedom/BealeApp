@@ -15,7 +15,7 @@
 #import "Building.h"
 #import "CLLocation+Utils.h"
 #import "Alert.h"
-
+#import "AppDelegate.h"
 #import "DrawerTableView.h"
 #import "VRCameraViewController.h"
 #import "PointsOfInterestView.h"
