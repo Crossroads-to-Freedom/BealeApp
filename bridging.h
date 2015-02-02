@@ -7,3 +7,17 @@
 //
 
 #import "FMDB.h" 
+
+#import <UIKit/UIKit.h>
+#import "QuartzCore/QuartzCore.h"
+#import <CoreLocation/CoreLocation.h>
+#import <CoreMotion/CoreMotion.h>
+#import "Building.h"
+#import "CLLocation+Utils.h"
+#import "Alert.h"
+
+#import "DrawerTableView.h"
+#import "VRCameraViewController.h"
+#import "PointsOfInterestView.h"
+#import "WifiStatus.h"
+#import "Drawer.h"

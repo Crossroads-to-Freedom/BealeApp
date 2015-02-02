@@ -38,7 +38,6 @@
 		CA7B7CFA1A74208D005E8CAB /* thumbnail_280x210.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7B7CF91A74208D005E8CAB /* thumbnail_280x210.jpg */; };
 		CA7B7CFF1A7424FA005E8CAB /* BG1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B7CFE1A7424FA005E8CAB /* BG1.png */; };
 		CA7B7D021A742BFC005E8CAB /* MovingUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7B7D011A742BFC005E8CAB /* MovingUIView.m */; };
-		CA9F7DA719B8D00A007CAB02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DA619B8D00A007CAB02 /* main.m */; };
 		CA9F7DAA19B8D00A007CAB02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DA919B8D00A007CAB02 /* AppDelegate.m */; };
 		CA9F7DB019B8D00A007CAB02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA9F7DAE19B8D00A007CAB02 /* Main.storyboard */; };
 		CA9F7DB219B8D00A007CAB02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA9F7DB119B8D00A007CAB02 /* Images.xcassets */; };
@@ -54,9 +53,8 @@
 		DB50231E1A8017C40048F41C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023161A8017C30048F41C /* FMDatabasePool.m */; };
 		DB50231F1A8017C40048F41C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5023181A8017C30048F41C /* FMDatabaseQueue.m */; };
 		DB5023201A8017C40048F41C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = DB50231B1A8017C40048F41C /* FMResultSet.m */; };
-		DB5023241A8017F90048F41C /* sql.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5023231A8017F90048F41C /* sql.swift */; };
 		DB5023271A80184F0048F41C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5023261A80184F0048F41C /* libsqlite3.dylib */; };
-		DB5023291A8019280048F41C /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5023281A8019280048F41C /* FMDatabaseVariadic.swift */; };
+		DB5023311A801C7D0048F41C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5023301A801C7D0048F41C /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +126,6 @@
 		CA7B7D011A742BFC005E8CAB /* MovingUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingUIView.m; sourceTree = "<group>"; };
 		CA9F7DA119B8D00A007CAB02 /* RhodesTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RhodesTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9F7DA519B8D00A007CAB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA9F7DA619B8D00A007CAB02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA9F7DA819B8D00A007CAB02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA9F7DA919B8D00A007CAB02 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CA9F7DAF19B8D00A007CAB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,10 +153,9 @@
 		DB5023191A8017C30048F41C /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = Externals/SQL/src/fmdb/FMDB.h; sourceTree = "<group>"; };
 		DB50231A1A8017C30048F41C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = Externals/SQL/src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
 		DB50231B1A8017C40048F41C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = Externals/SQL/src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
-		DB5023231A8017F90048F41C /* sql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sql.swift; sourceTree = "<group>"; };
 		DB5023251A80180A0048F41C /* bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridging.h; sourceTree = "<group>"; };
 		DB5023261A80184F0048F41C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		DB5023281A8019280048F41C /* FMDatabaseVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FMDatabaseVariadic.swift; path = "../fmdb-master/src/extra/Swift extensions/FMDatabaseVariadic.swift"; sourceTree = "<group>"; };
+		DB5023301A801C7D0048F41C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,8 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				DB5023261A80184F0048F41C /* libsqlite3.dylib */,
-				DB5023231A8017F90048F41C /* sql.swift */,
-				DB5023281A8019280048F41C /* FMDatabaseVariadic.swift */,
 				DB5023251A80180A0048F41C /* bridging.h */,
 				DB5023111A8017C30048F41C /* FMDatabase.h */,
 				DB5023121A8017C30048F41C /* FMDatabase.m */,
@@ -371,6 +365,7 @@
 				CA9F7DAE19B8D00A007CAB02 /* Main.storyboard */,
 				CA9F7DA819B8D00A007CAB02 /* AppDelegate.h */,
 				CA9F7DA919B8D00A007CAB02 /* AppDelegate.m */,
+				DB5023301A801C7D0048F41C /* main.swift */,
 				CABFAB5819B901CA000EC0B5 /* Building.h */,
 				CABFAB5919B901CA000EC0B5 /* Building.m */,
 				CAC7D42719CA1055002C0867 /* Asset.h */,
@@ -387,7 +382,6 @@
 			isa = PBXGroup;
 			children = (
 				CA9F7DA519B8D00A007CAB02 /* Info.plist */,
-				CA9F7DA619B8D00A007CAB02 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -521,7 +515,6 @@
 				CA7B7CE41A7341BB005E8CAB /* AssetViewController.m in Sources */,
 				CA7B7CD11A7340D9005E8CAB /* CLLocation+Utils.m in Sources */,
 				CA9F7DAA19B8D00A007CAB02 /* AppDelegate.m in Sources */,
-				CA9F7DA719B8D00A007CAB02 /* main.m in Sources */,
 				CA7B7CE81A7341BB005E8CAB /* AVCamViewController.m in Sources */,
 				CA7B7CAE1A734076005E8CAB /* WifiStatus.m in Sources */,
 				DB50231C1A8017C40048F41C /* FMDatabase.m in Sources */,
@@ -533,7 +526,6 @@
 				DB50231E1A8017C40048F41C /* FMDatabasePool.m in Sources */,
 				CA7B7CED1A7341DB005E8CAB /* AssetCollectionViewController.m in Sources */,
 				CA7B7CEA1A7341BB005E8CAB /* ViewController.m in Sources */,
-				DB5023291A8019280048F41C /* FMDatabaseVariadic.swift in Sources */,
 				CA7B7CCC1A7340B8005E8CAB /* AFURLResponseSerialization.m in Sources */,
 				CA7B7CCE1A7340B8005E8CAB /* UIImageView+AFNetworking.m in Sources */,
 				CA7B7CAA1A73402F005E8CAB /* ProgressView.m in Sources */,
@@ -541,13 +533,13 @@
 				CABFAB5A19B901CA000EC0B5 /* Building.m in Sources */,
 				CAC7D42919CA1055002C0867 /* Asset.m in Sources */,
 				CA7B7CE71A7341BB005E8CAB /* AVCamPreviewView.m in Sources */,
+				DB5023311A801C7D0048F41C /* main.swift in Sources */,
 				CA7B7CF01A7342C1005E8CAB /* PointsOfInterestView.m in Sources */,
 				DB50231F1A8017C40048F41C /* FMDatabaseQueue.m in Sources */,
 				CA7B7CC61A7340B8005E8CAB /* AFHTTPRequestOperationManager.m in Sources */,
 				CA7B7CC91A7340B8005E8CAB /* AFSecurityPolicy.m in Sources */,
 				CA7B7CE51A7341BB005E8CAB /* DrawerTableView.m in Sources */,
 				CA7B7D021A742BFC005E8CAB /* MovingUIView.m in Sources */,
-				DB5023241A8017F90048F41C /* sql.swift in Sources */,
 				DB5023201A8017C40048F41C /* FMResultSet.m in Sources */,
 				CA7B7CA91A73402F005E8CAB /* Drawer.m in Sources */,
 				DB50231D1A8017C40048F41C /* FMDatabaseAdditions.m in Sources */,
