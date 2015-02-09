@@ -13,5 +13,5 @@
 
 @property CGPoint originalPosition;
 @property CGPoint movingTo;
-
+@property BOOL    isMoving;
 @end

@@ -22,9 +22,7 @@
     self.view.layer.shadowOffset = CGSizeMake(-5, 0);
     
     //Camera
-    cameraViewController = [[AVCamViewController alloc] init];
-    cameraViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [self.view addSubview:cameraViewController.view];
+    
     
     buildingNameView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 1000)];
     buildingNameView.center = cameraViewController.view.center;
@@ -38,6 +36,20 @@
     
     progressCircle = [[ProgressView alloc] initAtLocation:CGPointZero Progress:0 Delegate:self];
     [buildingNameView addSubview:progressCircle];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    cameraViewController = [[AVCamViewController alloc] init];
+    cameraViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view addSubview:cameraViewController.view];
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    cameraViewController = nil;
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -77,7 +89,6 @@
 {
     //takes the json data and creates the respective objects for each building
     //Then puts each building into a list "locations"
-    NSLog(@"Hey");
     for (Building * building in self.locations) {
         [buildingNameView addSubview:building.buildingLabel];
         [buildingNameView addSubview:building.distanceLabel];

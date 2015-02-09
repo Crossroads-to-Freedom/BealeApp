@@ -23,7 +23,7 @@
     
     self.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.separatorColor = [UIColor clearColor];
-    [self selectRowAtIndexPath:0 animated:YES scrollPosition:UITableViewScrollPositionTop];
+    
     return self;
 }
 
@@ -51,8 +51,8 @@
         CAGradientLayer *selectedGrad = [CAGradientLayer layer];
         selectedGrad.frame = cell.bounds;
         selectedGrad.colors = [NSArray arrayWithObjects:
-                                                    (id)[[UIColor colorWithRed:17.0/256 green:172.0/256 blue:227.0/256 alpha:1]CGColor],
-                                                    (id)[[UIColor colorWithRed:7.0/256 green:162.0/256 blue:217.0/256 alpha:1]CGColor], nil];
+                                                    (id)[[UIColor colorWithRed:252/256. green:72/256. blue:58/256. alpha:1]CGColor],
+                                                    (id)[[UIColor colorWithRed:242/256. green:62/256. blue:48/256. alpha:1]CGColor], nil];
 
         [cell setSelectedBackgroundView:[[UIView alloc] init]];
         [cell.selectedBackgroundView.layer insertSublayer:selectedGrad atIndex:0];

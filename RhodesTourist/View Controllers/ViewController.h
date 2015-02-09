@@ -17,10 +17,13 @@
 #import "Alert.h"
 
 #import "DrawerTableView.h"
+#import "HomeView.h"
 #import "VRCameraViewController.h"
 #import "PointsOfInterestView.h"
 #import "WifiStatus.h"
 #import "Drawer.h"
+#import "MovingUIView.h"
+#import "BuildingInformationView.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate> {
     NSMutableArray * locations;
@@ -30,17 +33,19 @@
     UIView  * navBarView;
         UIButton * drawerButton;
         UILabel * locationName;
+        MovingUIView  * navBarIcon;
     
+    HomeView               * homeView;
     VRCameraViewController * cameraView;
     PointsOfInterestView * pointsOfInterestView;
-    
+        BuildingInformationView * buildingView;
     
     Building * currentBuilding;
         BOOL alertedCurrentBuilding;
     Building * viewedBuilding;
     
     
-    CGFloat currentHeading;
+    CGFloat currentAjustedHeading;
     
     //<=========== Drawer
     Drawer * drawer;

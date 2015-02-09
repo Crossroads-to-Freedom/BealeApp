@@ -22,7 +22,7 @@
     
     //Constants
 }
-@property NSArray * extraViewsToMove;
+@property NSMutableArray * extraViewsToMove;
 
 - (id)initWithMenuView:(UIView *) menu contentViews:(NSArray *) views;
 - (void)drawerInWithView:(NSUInteger) viewNumber;

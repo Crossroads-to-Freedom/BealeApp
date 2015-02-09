@@ -22,6 +22,7 @@
 
 - (void)drawerInWithView:(NSUInteger) viewNumber
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DrawerIn" object:nil userInfo:@{@"view" : [contentViews objectAtIndex:viewNumber]}];
     topViewNumber = viewNumber;
     drawerIn = YES;
     UIView * topView = [contentViews objectAtIndex:viewNumber];
@@ -29,6 +30,10 @@
     [UIView animateWithDuration:0.2 animations:^{
         for (UIView * view in contentViews) {
             view.center = CGPointMake(view.frame.size.width/2, view.center.y);
+            if (view != topView)
+                view.alpha = 0;
+            else
+                view.alpha = 1;
         }
         
         if (self.extraViewsToMove) {
@@ -43,6 +48,7 @@
 
 - (void)drawerOut
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DrawerOut" object:nil];
     drawerIn = NO;
     [UIView animateWithDuration:0.2 animations:^{
         
@@ -61,7 +67,23 @@
 
 - (void)drawerToggle
 {
-    drawerIn ? [self drawerOut] : [self drawerInWithView:topViewNumber];
+    if (drawerIn)
+        [self drawerOut];
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"DrawerIn" object:nil];
+        drawerIn = YES;
+        [UIView animateWithDuration:0.2 animations:^{
+            for (UIView * view in contentViews) {
+                view.center = CGPointMake(view.frame.size.width/2, view.center.y);
+            }
+            
+            if (self.extraViewsToMove) {
+                for (UIView * view in self.extraViewsToMove) {
+                    view.center = CGPointMake(view.frame.size.width/2, view.center.y);
+                }
+            }
+        }];
+    }
 }
 
 @end

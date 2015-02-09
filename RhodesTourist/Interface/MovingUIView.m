@@ -16,7 +16,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.originalPosition = self.center;
-        [self move];
+        //[self move];
+        [self performSelector:@selector(move) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
     }
     return self;
 }
@@ -24,10 +25,12 @@
 - (void) move
 {
     self.movingTo = CGPointMake(self.originalPosition.x + 7 - arc4random_uniform(15), self.originalPosition.y + 7 - arc4random_uniform(15));
-    [UIView animateWithDuration:arc4random_uniform(3) + 7 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    [UIView animateWithDuration:arc4random_uniform(3) + 7 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.center = self.movingTo;
     }completion:^(BOOL finished) {
-        [self move];
+        if (self.isMoving)
+            [self move];
+        //[self performSelector:@selector(move) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
     }];
     
     
