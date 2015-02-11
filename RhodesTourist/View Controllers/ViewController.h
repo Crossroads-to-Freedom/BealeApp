@@ -23,22 +23,19 @@
 #import "WifiStatus.h"
 #import "Drawer.h"
 #import "MovingUIView.h"
-#import "BuildingInformationView.h"
+#import "BuildingInformationViewController.h"
 
-@interface ViewController : UIViewController <CLLocationManagerDelegate> {
+@interface ViewController : UIViewController <CLLocationManagerDelegate, UITabBarControllerDelegate, UITabBarDelegate> {
     NSMutableArray * locations;
 
     IBOutlet UIView * statusBarBackground;
     
-    UIView  * navBarView;
-        UIButton * drawerButton;
-        UILabel * locationName;
-        MovingUIView  * navBarIcon;
+    IBOutlet UITabBar * tabBar;
     
     HomeView               * homeView;
     VRCameraViewController * cameraView;
     PointsOfInterestView * pointsOfInterestView;
-        BuildingInformationView * buildingView;
+        
     
     Building * currentBuilding;
         BOOL alertedCurrentBuilding;
@@ -47,11 +44,6 @@
     
     CGFloat currentAjustedHeading;
     
-    //<=========== Drawer
-    Drawer * drawer;
-    DrawerTableView * drawerView;
-    BOOL drawerIsIn;
-    BOOL sideSwiping;
     
     //<=========== Utility
     BOOL showingAlert;
@@ -62,6 +54,8 @@
 
 - (IBAction)presentBuildingAssets:(id)sender;
 - (void) progressDone;
+- (void)presentBuildingInformationWithId:(NSInteger) buildingId;
+
 @property CLLocationManager * locationManager;
 @property CMMotionManager   * motionManager;
 @property CLHeading * currentHeading;

@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RhodesTourist/Building.m"
-            timestampString = "442985022.480944"
+            timestampString = "445388718.438442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-updateBuildingLabelWithUserLocation:Heading:Motion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,22 +74,6 @@
             startingLineNumber = "40"
             endingLineNumber = "40"
             landmarkName = "-alert:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RhodesTourist/View Controllers/ViewController.m"
-            timestampString = "444090161.512613"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -1,83 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cTt-2q-vCa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tG6-zp-Jvf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="r0s-JC-D9q">
+        <!--Navigation Controller-->
+        <scene sceneID="LNF-Ro-bcU">
             <objects>
-                <viewController id="YfG-nh-SFj" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2V0-Rd-zo4"/>
-                        <viewControllerLayoutGuide type="bottom" id="kp5-ur-FlK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QaY-fz-y76">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                <navigationController id="tG6-zp-Jvf" sceneMemberID="viewController">
+                    <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yst-Sn-lhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="301" y="-157"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="2WE-54-718">
-            <objects>
-                <viewController id="ddG-wS-qe6" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sp3-Ap-ifn"/>
-                        <viewControllerLayoutGuide type="bottom" id="NZp-Xr-36c"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FUW-T7-Q9O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wn8-nX-bqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="814" y="-157"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="47T-Ew-Loe">
-            <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="cTt-2q-vCa" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="moW-Pl-wKc"/>
-                        <viewControllerLayoutGuide type="bottom" id="jhh-tW-fCd"/>
-                    </layoutGuides>
-                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="Wun-Mg-R2W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSC-Ey-rhE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
-                                <color key="backgroundColor" red="0.047058823530000002" green="0.65490196079999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ODV-aD-Krg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.96743841239999995" green="0.070968293799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hRl-Uv-2I2">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
-                        <outlet property="statusBarBackground" destination="eSC-Ey-rhE" id="tt9-qO-GFK"/>
-                        <segue destination="vne-kv-cWi" kind="showDetail" identifier="RootToBuilding" id="ze5-LJ-tiN"/>
-                        <segue destination="ddG-wS-qe6" kind="presentation" identifier="RootToNearby" id="rd6-hk-gh2"/>
-                        <segue destination="YfG-nh-SFj" kind="presentation" identifier="RootToInside" id="jXt-mu-Ien"/>
-                        <segue destination="vXJ-UK-gOV" kind="presentation" id="7ka-yT-INc"/>
+                        <segue destination="BMX-ZI-4lQ" kind="relationship" relationship="rootViewController" id="tbT-F2-1rq"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tiP-s5-YCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Pu-NJ-SWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714" y="576"/>
+            <point key="canvasLocation" x="760" y="1051"/>
         </scene>
         <!--Cam View Controller-->
         <scene sceneID="nQV-3f-xKW">
@@ -116,7 +64,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1350" y="-157"/>
+            <point key="canvasLocation" x="1390" y="1721"/>
         </scene>
         <!--Asset View Controller-->
         <scene sceneID="bdG-I7-QWv">
@@ -187,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="-322" y="814"/>
         </scene>
-        <!--View Controller-->
+        <!--Building Information View Controller-->
         <scene sceneID="LFy-Kr-8hp">
             <objects>
-                <viewController id="y14-EX-r6I" sceneMemberID="viewController">
+                <viewController id="y14-EX-r6I" customClass="BuildingInformationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CFJ-o6-rn6"/>
                         <viewControllerLayoutGuide type="bottom" id="EqC-Fu-P6r"/>
@@ -245,27 +193,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLf-sZ-YuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2176" y="566"/>
+            <point key="canvasLocation" x="1880" y="1051"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="dU3-m4-HDS">
+        <!--View Controller-->
+        <scene sceneID="Ncr-Gm-MUS">
             <objects>
-                <navigationController wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="vne-kv-cWi" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" alpha="0.10000000000000001" contentMode="scaleToFill" id="bR9-4e-QQa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.62352941176470589" green="0.082352941176470587" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.047058823530000002" green="0.65490196079999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController id="BMX-ZI-4lQ" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="680-HN-jDC"/>
+                        <viewControllerLayoutGuide type="bottom" id="zUt-Mn-kT5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EfG-8K-vJp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="CsJ-tj-l0C">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem tag="1" title="Home" id="WmI-0y-9Ar"/>
+                                    <tabBarItem tag="2" title="Map" id="UPD-Lm-Lim"/>
+                                    <tabBarItem tag="3" title="Camera" id="Xu6-yF-40Q"/>
+                                    <tabBarItem tag="4" title="" systemItem="search" id="AH6-Xe-ybt"/>
+                                    <tabBarItem tag="5" title="Settings" id="WsR-ml-cAh"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="BMX-ZI-4lQ" id="ZiL-EL-7kf"/>
+                                </connections>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yiJ-0n-BCU"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="y14-EX-r6I" kind="relationship" relationship="rootViewController" id="ssC-rB-aaK"/>
+                        <outlet property="tabBar" destination="CsJ-tj-l0C" id="EzA-vk-PN4"/>
+                        <segue destination="y14-EX-r6I" kind="show" identifier="RootToBuilding" id="cqu-Ti-231"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BA9-k9-Xiq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jm-ON-1Cj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="592"/>
+            <point key="canvasLocation" x="1314" y="1051"/>
         </scene>
     </scenes>
 </document>

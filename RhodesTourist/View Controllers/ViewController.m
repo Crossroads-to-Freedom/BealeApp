@@ -10,7 +10,7 @@
 //BCLC      35.156410, -89.988989
 //kappa Sig 35.155525, -89.990377
 //KA        35.155751, -89.990309
-//Sig Nu    35.155997, -89.990289
+//Sig Nu    35.155997, -89.990289x  
 //SAE       35.155564, -89.990677
 //ATO       35.155619, -89.991002
 //Pike      35.155626, -89.991281
@@ -50,79 +50,32 @@
     locations = [NSMutableArray new];
     
     
-    statusBarBackground.layer.zPosition = 101;
-    statusBarBackground.backgroundColor = [UIColor colorWithRed:AC_RED green:AC_GREEN blue:AC_BLUE alpha:1];
-    
     //<============== Create Views
-    drawerView = [[DrawerTableView alloc] initWithFrame:CGRectMake(0, 20, 100, self.view.frame.size.height - 20)];
-    [drawerView selectRowAtIndexPath:0 animated:YES scrollPosition:UITableViewScrollPositionTop];
-    [self.view addSubview:drawerView];
     
-    UIScreenEdgePanGestureRecognizer *edgeGesture = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgeSwipe:)];
-    [self.view addGestureRecognizer:edgeGesture];
-    //Black Background view used for animations
-    UIView * backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height)];
-    backgroundView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:backgroundView];
-    //VRCameraView -- this is the view that overlays building and people
+    
+    //VRCameraView -- this is the view that overlays buildings and people
     cameraView = [[VRCameraViewController alloc] init];
     cameraView.view.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60);
     cameraView.motionManager = self.motionManager;
     cameraView.locationManager = self.locationManager;
     cameraView.locations = locations;
-    [cameraView.view addGestureRecognizer:edgeGesture];
+    [cameraView viewWillAppear:YES];
+    [cameraView viewDidAppear:YES];
     [self.view addSubview:cameraView.view];
     
-    //PointsOfInterestView
-    pointsOfInterestView = [[PointsOfInterestView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60)];
-    [pointsOfInterestView addGestureRecognizer:edgeGesture];
-    pointsOfInterestView.delegate = self;
-    [self.view addSubview:pointsOfInterestView];
     
     //HomeView
-    homeView = [[HomeView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60)];
+    homeView = [[HomeView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60) Delegate:self];
     [self.view addSubview:homeView];
     
-    //Nav Bar
-    navBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 40)];
-    navBarView.backgroundColor = [UIColor colorWithRed:AC_RED green:AC_GREEN blue:AC_BLUE alpha:1];
-    navBarView.layer.zPosition = 100;
-    navBarView.layer.shadowRadius = 5;
-    navBarView.layer.shadowOpacity = 0.5;
-    navBarView.layer.shadowOffset = CGSizeMake(-5, 3);
-    
-    locationName = [[UILabel alloc] initWithFrame:CGRectMake(20, 9, 280, 21)];
-    locationName.textAlignment = NSTextAlignmentCenter;
-    [locationName setTextColor:[UIColor whiteColor]];
-    //locationName.text = @"Nothing";
-    [navBarView addSubview:locationName];
     
     
     
-    NSArray * contentViews = @[homeView, cameraView.view, pointsOfInterestView];
-    NSMutableArray * extraViews   = [[NSMutableArray alloc] initWithArray:@[navBarView, backgroundView]];
-    drawer = [[Drawer alloc] initWithMenuView:drawerView contentViews:contentViews];
-    drawer.extraViewsToMove = extraViews;
-    drawerView.drawerController = drawer;
-    
-    drawerButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 40, 40)];
-    [drawerButton setImage:[UIImage imageNamed:@"Drawer.png"] forState:UIControlStateNormal];
-    [drawerButton addTarget:drawer action:@selector(drawerToggle) forControlEvents:UIControlEventTouchUpInside];
-    [navBarView addSubview:drawerButton];
-    [self.view addSubview:navBarView];
-    
+    [self.view bringSubviewToFront:tabBar];
     //Utilities
     wifiStatus = [WifiStatus new];
     alertManager = [[Alert alloc] initWithSUperView:self.view];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-        selector:@selector(drawerOut:)
-        name:@"DrawerOut"
-        object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-        selector:@selector(drawerIn:)
-        name:@"DrawerIn"
-        object:nil];
     
 }
 
@@ -142,97 +95,35 @@
         [alertManager alert:@"Enable wifi to increase location accuracy"];
     
     [self loadNearbyBuildings];
-
-}
-
-//Function to show a generic alert
-
-- (void) animateInterestViewToAssetView:(UIButton *) sender
-{
-    
-    MovingUIView * topView = (MovingUIView* )[sender superview];
-    navBarIcon = topView;
-    UILabel * pointLabel = (UILabel*)[topView viewWithTag:100];
-    topView.isMoving = NO;
-    [topView.layer removeAllAnimations];
-    [topView removeFromSuperview];
-    [navBarView addSubview:topView];
-    topView.frame = CGRectMake(topView.frame.origin.x, topView.frame.origin.y + 40, topView.frame.size.width, topView.frame.size.height);
-    topView.layer.zPosition = 102;
-    topView.isMoving = NO;
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        topView.frame = CGRectMake(self.view.frame.size.width-60, 5, 30, 30);
-        pointLabel.frame = CGRectMake(-self.view.frame.size.width + 60 + (self.view.frame.size.width - pointLabel.frame.size.width)/2, -4, pointLabel.frame.size.width, 40);
-        //pointLabel.font = [UIFont boldSystemFontOfSize:16];
-        pointLabel.transform = CGAffineTransformMakeScale(1.2,1.2);
-        sender.frame = CGRectMake(0, 0, 30, 30);
-        pointsOfInterestView.alpha=0;
-    }];
-    [self showBuildingInformationView:topView.tag];
-    CABasicAnimation *cornerAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-    cornerAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    cornerAnimation.fromValue = [NSNumber numberWithFloat:50.0f];
-    cornerAnimation.toValue = [NSNumber numberWithFloat:15.0f];
-    cornerAnimation.duration = 0.5;
-    [topView.layer addAnimation:cornerAnimation forKey:@"cornerRadius"];
-    [sender.layer addAnimation:cornerAnimation forKey:@"cornerRadius"];
-    [topView.layer setCornerRadius:15.0];
-    [sender.layer setCornerRadius:15.0];
-    
-    CABasicAnimation *shadowAnimation = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
-    shadowAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    shadowAnimation.fromValue = [NSNumber numberWithFloat:0.9f];
-    shadowAnimation.toValue = [NSNumber numberWithFloat:0.0f];
-    shadowAnimation.duration = 0.5;
-    [topView.layer addAnimation:shadowAnimation forKey:@"shadowOpacity"];
-    [pointLabel.layer addAnimation:shadowAnimation forKey:@"shadowOpacity"];
-    [topView.layer setShadowOpacity:0.0];
-    [pointLabel.layer setShadowOpacity:0.0];
-    
-    
-}
-
--(void) showBuildingInformationView:(NSInteger) assetViewId
-{
-    if (buildingView) {
-        [drawer.extraViewsToMove removeObject:buildingView];
-        [buildingView removeFromSuperview];
-    }
-    buildingView = [[BuildingInformationView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60)];
-    buildingView.alpha = 0;
-    [self.view addSubview:buildingView];
-    [UIView animateWithDuration:0.5 animations:^{
-        buildingView.alpha = 1;
-    }];
-    [drawer.extraViewsToMove addObject:buildingView];
-}
-
--(void) drawerOut:(NSNotification *)notification
-{
-    [UIView animateWithDuration:0.2 animations:^{ statusBarBackground.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1]; }];
-}
-
--(void) drawerIn:(NSNotification *)notification
-{
-    [UIView animateWithDuration:0.2 animations:^{ statusBarBackground.backgroundColor = [UIColor colorWithRed:AC_RED green:AC_GREEN blue:AC_BLUE alpha:1]; }];
-    
-    if ([[notification userInfo] objectForKey:@"view"])
-    {
-        UIView * newView = [[notification userInfo] objectForKey:@"view"];
-        if (newView != cameraView.view) {
-            [cameraView viewDidDisappear:NO];
-        }
-        if (navBarIcon) {
-            [navBarIcon removeFromSuperview];
-            [pointsOfInterestView returnPoint:navBarIcon];
-        }
-    }
+    for (UITabBarItem * item in tabBar.items) {
+        if      (item.tag == 1)
+            item.image = [self imageWithImage:[UIImage imageNamed:@"home-75.png"] scaledToSize:CGSizeMake(30, 30)];
+        else if (item.tag == 2)
+            item.image = [self imageWithImage:[UIImage imageNamed:@"map_marker-256.png"] scaledToSize:CGSizeMake(30, 30)];
+        else if (item.tag == 3)
+            item.image = [self imageWithImage:[UIImage imageNamed:@"slr_camera2-75.png"] scaledToSize:CGSizeMake(30, 30)];
+        else if (item.tag == 5)
+            item.image = [self imageWithImage:[UIImage imageNamed:@"settings-75.png"] scaledToSize:CGSizeMake(30, 30)];
         
+    }
+
+}
+
+-(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize {
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+- (void)presentBuildingInformationWithId:(NSInteger) buildingId
+{
+    [self performSegueWithIdentifier:@"RootToBuilding" sender:self];
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager{
-    return NO; // Prevents annoying calculation window while testing
+    //return NO; // Prevents annoying calculation window while testing
     if (!self.currentHeading) return YES; // Got nothing, We can assume we got to calibrate.
     else if (self.currentHeading.headingAccuracy <= 0) return YES; // 0 means invalid heading and needs to be calibrated
     else if (self.currentHeading.headingAccuracy > 5)return YES; // over 5 degrees needs to be recalculated
@@ -337,6 +228,29 @@
     [cameraView loadedNewBuildings];
 }
 
+- (void) tabBar:(UITabBar *)ltabBar didSelectItem:(UITabBarItem *)item
+{
+    NSLog(@"%ld", (long)item.tag);
+    if (item.tag == 1) {
+        [self.view bringSubviewToFront:homeView];
+        [self.view bringSubviewToFront:tabBar];
+    } else if (item.tag == 2) {
+        [self.view bringSubviewToFront:homeView];
+        [self.view bringSubviewToFront:tabBar];
+    } else if (item.tag == 3) {
+        [self.view bringSubviewToFront:cameraView.view];
+        [self.view bringSubviewToFront:tabBar];
+    } else if (item.tag == 4) {
+        [self.view bringSubviewToFront:homeView];
+        [self.view bringSubviewToFront:tabBar];
+    } else if (item.tag == 5) {
+        [self.view bringSubviewToFront:homeView];
+        [self.view bringSubviewToFront:tabBar];
+    } else {
+        NSLog(@"???");
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -355,7 +269,7 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)theLocations {
     
-    if (!currentBuilding || ![currentBuilding isInside:self.locationManager.location]) { //If this is true then the user is still in the same building
+    if (!currentBuilding || ![currentBuilding isInside:self.locationManager.location]) { //If this is false then the user is still in the same building
                                                                                          //This check just saves some CPU time
         Building * oldBuilding = currentBuilding;
         currentBuilding = nil;
@@ -385,11 +299,6 @@
 #pragma mark -
 #pragma mark Movement
 
-- (IBAction)edgeSwipe:(UIGestureRecognizer *)gestureRecognizer
-{
-    NSLog(@"Test");
-}
-
 - (void) progressDone {
     //[self performSegueWithIdentifier:@"RootToBuilding" sender:self];
 }
@@ -397,14 +306,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"RootToBuilding"]) {
-        NSArray *temp = [[segue destinationViewController] childViewControllers];
-        AssetCollectionViewController * assetCollectionViewController = (AssetCollectionViewController *)[temp objectAtIndex:0];
-        assetCollectionViewController.buildingData = viewedBuilding;
+        BuildingInformationViewController * buildingViewController = [segue destinationViewController];
+        buildingViewController.buildingData = viewedBuilding;
     }
 }
 
 
-- (void)myTouch:(NSSet *)touches withEvent:(UIEvent *)event
+/*- (void)myTouch:(NSSet *)touches withEvent:(UIEvent *)event
 {
     CGPoint location;
     for (UITouch *touch in touches)
@@ -468,7 +376,7 @@
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     sideSwiping = NO;
     //[progressCircle stopProgress];
-}
+}*/
 
 - (IBAction)presentBuildingAssets:(id)sender
 {

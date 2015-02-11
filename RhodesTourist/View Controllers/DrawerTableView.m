@@ -62,6 +62,10 @@
         UIImageView * home = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
         home.image = [UIImage imageNamed:@"Home200x200"];
         [cell addSubview:home];
+    } else if (indexPath.row == 1) {
+        UIImageView * home = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        home.image = [UIImage imageNamed:@"Home200x200"];
+        [cell addSubview:home];
     }
     return cell;
 }

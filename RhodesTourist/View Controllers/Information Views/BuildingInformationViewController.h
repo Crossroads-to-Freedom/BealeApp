@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Building.h"
-@interface BuildingInformationView : UIView
+@interface BuildingInformationViewController : UIViewController {
+    
+    UIView * navBarView;
+    
+}
 
+@property Building * buildingData;
 @property UIImageView * mainImage;
 @property UIView      * descriptionView;
 @property UIView      * choicesView;

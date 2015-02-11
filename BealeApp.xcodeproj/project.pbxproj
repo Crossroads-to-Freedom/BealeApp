@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0239941A89649400D70F77 /* GridView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0239931A89649400D70F77 /* GridView.m */; };
 		CA2F30081A7451190036EB79 /* Withers Gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2F30061A7451190036EB79 /* Withers Gallery.png */; };
 		CA49561A19F8BFB300170C1F /* AppIcon120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = CA49561819F8BFB300170C1F /* AppIcon120x120.png */; };
 		CA49561B19F8BFB300170C1F /* AppIcon180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = CA49561919F8BFB300170C1F /* AppIcon180x180.png */; };
@@ -39,7 +40,7 @@
 		CA7B7CFA1A74208D005E8CAB /* thumbnail_280x210.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7B7CF91A74208D005E8CAB /* thumbnail_280x210.jpg */; };
 		CA7B7CFF1A7424FA005E8CAB /* BG1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B7CFE1A7424FA005E8CAB /* BG1.png */; };
 		CA7B7D021A742BFC005E8CAB /* MovingUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7B7D011A742BFC005E8CAB /* MovingUIView.m */; };
-		CA7E1FC61A78272C003716F8 /* BuildingInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7E1FC51A78272C003716F8 /* BuildingInformationView.m */; };
+		CA7E1FC61A78272C003716F8 /* BuildingInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7E1FC51A78272C003716F8 /* BuildingInformationViewController.m */; };
 		CA7E1FCC1A7842A9003716F8 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7E1FCB1A7842A9003716F8 /* HomeView.m */; };
 		CA9F7DA719B8D00A007CAB02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DA619B8D00A007CAB02 /* main.m */; };
 		CA9F7DAA19B8D00A007CAB02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DA919B8D00A007CAB02 /* AppDelegate.m */; };
@@ -47,6 +48,10 @@
 		CA9F7DB219B8D00A007CAB02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA9F7DB119B8D00A007CAB02 /* Images.xcassets */; };
 		CA9F7DBE19B8D00B007CAB02 /* RhodesTouristTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F7DBD19B8D00B007CAB02 /* RhodesTouristTests.m */; };
 		CA9F7DC819B8D55E007CAB02 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9F7DC719B8D55E007CAB02 /* CoreLocation.framework */; };
+		CABBC5601A8C046700B36FCE /* map_marker-256.png in Resources */ = {isa = PBXBuildFile; fileRef = CABBC55F1A8C046700B36FCE /* map_marker-256.png */; };
+		CABBC5621A8C0B4100B36FCE /* settings-75.png in Resources */ = {isa = PBXBuildFile; fileRef = CABBC5611A8C0B4100B36FCE /* settings-75.png */; };
+		CABBC5641A8C0BD300B36FCE /* home-75.png in Resources */ = {isa = PBXBuildFile; fileRef = CABBC5631A8C0BD300B36FCE /* home-75.png */; };
+		CABBC5661A8C0C2200B36FCE /* slr_camera2-75.png in Resources */ = {isa = PBXBuildFile; fileRef = CABBC5651A8C0C2200B36FCE /* slr_camera2-75.png */; };
 		CABFAB5A19B901CA000EC0B5 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = CABFAB5919B901CA000EC0B5 /* Building.m */; };
 		CABFAB5F19B91828000EC0B5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABFAB5E19B91828000EC0B5 /* CoreMotion.framework */; };
 		CAC7D42919CA1055002C0867 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC7D42819CA1055002C0867 /* Asset.m */; };
@@ -65,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA0239921A89649400D70F77 /* GridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridView.h; sourceTree = "<group>"; };
+		CA0239931A89649400D70F77 /* GridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridView.m; sourceTree = "<group>"; };
 		CA2F30061A7451190036EB79 /* Withers Gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Withers Gallery.png"; sourceTree = "<group>"; };
 		CA49561819F8BFB300170C1F /* AppIcon120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon120x120.png; sourceTree = "<group>"; };
 		CA49561919F8BFB300170C1F /* AppIcon180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon180x180.png; sourceTree = "<group>"; };
@@ -122,21 +129,25 @@
 		CA7B7CFE1A7424FA005E8CAB /* BG1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG1.png; sourceTree = "<group>"; };
 		CA7B7D001A742BFC005E8CAB /* MovingUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingUIView.h; sourceTree = "<group>"; };
 		CA7B7D011A742BFC005E8CAB /* MovingUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingUIView.m; sourceTree = "<group>"; };
-		CA7E1FC41A78272C003716F8 /* BuildingInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingInformationView.h; sourceTree = "<group>"; };
-		CA7E1FC51A78272C003716F8 /* BuildingInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingInformationView.m; sourceTree = "<group>"; };
+		CA7E1FC41A78272C003716F8 /* BuildingInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingInformationViewController.h; sourceTree = "<group>"; };
+		CA7E1FC51A78272C003716F8 /* BuildingInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingInformationViewController.m; sourceTree = "<group>"; };
 		CA7E1FCA1A7842A9003716F8 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
 		CA7E1FCB1A7842A9003716F8 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
-		CA9F7DA119B8D00A007CAB02 /* RhodesTourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RhodesTourist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA9F7DA119B8D00A007CAB02 /* BealeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BealeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9F7DA519B8D00A007CAB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9F7DA619B8D00A007CAB02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA9F7DA819B8D00A007CAB02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA9F7DA919B8D00A007CAB02 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CA9F7DAF19B8D00A007CAB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA9F7DB119B8D00A007CAB02 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CA9F7DB719B8D00B007CAB02 /* RhodesTouristTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RhodesTouristTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA9F7DB719B8D00B007CAB02 /* BealeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BealeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9F7DBC19B8D00B007CAB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA9F7DBD19B8D00B007CAB02 /* RhodesTouristTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RhodesTouristTests.m; sourceTree = "<group>"; };
 		CA9F7DC719B8D55E007CAB02 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CABBC55F1A8C046700B36FCE /* map_marker-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_marker-256.png"; sourceTree = "<group>"; };
+		CABBC5611A8C0B4100B36FCE /* settings-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-75.png"; sourceTree = "<group>"; };
+		CABBC5631A8C0BD300B36FCE /* home-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-75.png"; sourceTree = "<group>"; };
+		CABBC5651A8C0C2200B36FCE /* slr_camera2-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera2-75.png"; sourceTree = "<group>"; };
 		CABFAB5319B8F8E9000EC0B5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CABFAB5819B901CA000EC0B5 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
 		CABFAB5919B901CA000EC0B5 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
@@ -197,6 +208,8 @@
 				CA7B7CA71A73402F005E8CAB /* ProgressView.m */,
 				CA7B7D001A742BFC005E8CAB /* MovingUIView.h */,
 				CA7B7D011A742BFC005E8CAB /* MovingUIView.m */,
+				CA0239921A89649400D70F77 /* GridView.h */,
+				CA0239931A89649400D70F77 /* GridView.m */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -260,8 +273,8 @@
 			children = (
 				CA7B7CEB1A7341DB005E8CAB /* AssetCollectionViewController.h */,
 				CA7B7CEC1A7341DB005E8CAB /* AssetCollectionViewController.m */,
-				CA7E1FC41A78272C003716F8 /* BuildingInformationView.h */,
-				CA7E1FC51A78272C003716F8 /* BuildingInformationView.m */,
+				CA7E1FC41A78272C003716F8 /* BuildingInformationViewController.h */,
+				CA7E1FC51A78272C003716F8 /* BuildingInformationViewController.m */,
 			);
 			path = "Information Views";
 			sourceTree = "<group>";
@@ -294,6 +307,7 @@
 		CA7B7CF21A742070005E8CAB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CABBC55E1A8C039A00B36FCE /* ToolBar */,
 				CA2F30051A7451190036EB79 /* PointsOfInterest */,
 				CA7B7CFD1A7423A4005E8CAB /* Drawer */,
 				CA7B7CFB1A742387005E8CAB /* Backgrounds */,
@@ -337,8 +351,8 @@
 		CA9F7DA219B8D00A007CAB02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA9F7DA119B8D00A007CAB02 /* RhodesTourist.app */,
-				CA9F7DB719B8D00B007CAB02 /* RhodesTouristTests.xctest */,
+				CA9F7DA119B8D00A007CAB02 /* BealeApp.app */,
+				CA9F7DB719B8D00B007CAB02 /* BealeAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -391,12 +405,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CABBC55E1A8C039A00B36FCE /* ToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				CABBC5651A8C0C2200B36FCE /* slr_camera2-75.png */,
+				CABBC5631A8C0BD300B36FCE /* home-75.png */,
+				CABBC5611A8C0B4100B36FCE /* settings-75.png */,
+				CABBC55F1A8C046700B36FCE /* map_marker-256.png */,
+			);
+			name = ToolBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CA9F7DA019B8D00A007CAB02 /* RhodesTourist */ = {
+		CA9F7DA019B8D00A007CAB02 /* BealeApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA9F7DC119B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "RhodesTourist" */;
+			buildConfigurationList = CA9F7DC119B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "BealeApp" */;
 			buildPhases = (
 				CA9F7D9D19B8D00A007CAB02 /* Sources */,
 				CA9F7D9E19B8D00A007CAB02 /* Frameworks */,
@@ -406,14 +431,14 @@
 			);
 			dependencies = (
 			);
-			name = RhodesTourist;
+			name = BealeApp;
 			productName = RhodesTourist;
-			productReference = CA9F7DA119B8D00A007CAB02 /* RhodesTourist.app */;
+			productReference = CA9F7DA119B8D00A007CAB02 /* BealeApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CA9F7DB619B8D00B007CAB02 /* RhodesTouristTests */ = {
+		CA9F7DB619B8D00B007CAB02 /* BealeAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA9F7DC419B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "RhodesTouristTests" */;
+			buildConfigurationList = CA9F7DC419B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "BealeAppTests" */;
 			buildPhases = (
 				CA9F7DB319B8D00B007CAB02 /* Sources */,
 				CA9F7DB419B8D00B007CAB02 /* Frameworks */,
@@ -424,9 +449,9 @@
 			dependencies = (
 				CA9F7DB919B8D00B007CAB02 /* PBXTargetDependency */,
 			);
-			name = RhodesTouristTests;
+			name = BealeAppTests;
 			productName = RhodesTouristTests;
-			productReference = CA9F7DB719B8D00B007CAB02 /* RhodesTouristTests.xctest */;
+			productReference = CA9F7DB719B8D00B007CAB02 /* BealeAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -448,7 +473,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CA9F7D9C19B8D00A007CAB02 /* Build configuration list for PBXProject "RhodesTourist" */;
+			buildConfigurationList = CA9F7D9C19B8D00A007CAB02 /* Build configuration list for PBXProject "BealeApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -461,8 +486,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA9F7DA019B8D00A007CAB02 /* RhodesTourist */,
-				CA9F7DB619B8D00B007CAB02 /* RhodesTouristTests */,
+				CA9F7DA019B8D00A007CAB02 /* BealeApp */,
+				CA9F7DB619B8D00B007CAB02 /* BealeAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -478,8 +503,12 @@
 				CA7B7CFF1A7424FA005E8CAB /* BG1.png in Resources */,
 				CA2F30081A7451190036EB79 /* Withers Gallery.png in Resources */,
 				CA7B7CF81A742070005E8CAB /* SideIcons.psd in Resources */,
+				CABBC5641A8C0BD300B36FCE /* home-75.png in Resources */,
+				CABBC5661A8C0C2200B36FCE /* slr_camera2-75.png in Resources */,
 				CA7B7CFA1A74208D005E8CAB /* thumbnail_280x210.jpg in Resources */,
 				CA49561A19F8BFB300170C1F /* AppIcon120x120.png in Resources */,
+				CABBC5621A8C0B4100B36FCE /* settings-75.png in Resources */,
+				CABBC5601A8C046700B36FCE /* map_marker-256.png in Resources */,
 				CA7B7CF71A742070005E8CAB /* Home200x200.png in Resources */,
 				CA9F7DB219B8D00A007CAB02 /* Images.xcassets in Resources */,
 			);
@@ -506,7 +535,7 @@
 				CA9F7DAA19B8D00A007CAB02 /* AppDelegate.m in Sources */,
 				CA9F7DA719B8D00A007CAB02 /* main.m in Sources */,
 				CA7B7CE81A7341BB005E8CAB /* AVCamViewController.m in Sources */,
-				CA7E1FC61A78272C003716F8 /* BuildingInformationView.m in Sources */,
+				CA7E1FC61A78272C003716F8 /* BuildingInformationViewController.m in Sources */,
 				CA7B7CAE1A734076005E8CAB /* WifiStatus.m in Sources */,
 				CA7B7CA81A73402F005E8CAB /* Alert.m in Sources */,
 				CA7B7CC71A7340B8005E8CAB /* AFHTTPSessionManager.m in Sources */,
@@ -522,6 +551,7 @@
 				CABFAB5A19B901CA000EC0B5 /* Building.m in Sources */,
 				CAC7D42919CA1055002C0867 /* Asset.m in Sources */,
 				CA7B7CE71A7341BB005E8CAB /* AVCamPreviewView.m in Sources */,
+				CA0239941A89649400D70F77 /* GridView.m in Sources */,
 				CA7B7CF01A7342C1005E8CAB /* PointsOfInterestView.m in Sources */,
 				CA7B7CC61A7340B8005E8CAB /* AFHTTPRequestOperationManager.m in Sources */,
 				CA7B7CC91A7340B8005E8CAB /* AFSecurityPolicy.m in Sources */,
@@ -545,7 +575,7 @@
 /* Begin PBXTargetDependency section */
 		CA9F7DB919B8D00B007CAB02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA9F7DA019B8D00A007CAB02 /* RhodesTourist */;
+			target = CA9F7DA019B8D00A007CAB02 /* BealeApp */;
 			targetProxy = CA9F7DB819B8D00B007CAB02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -647,10 +677,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RhodesTourist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = RhodesTourist;
+				PRODUCT_NAME = BealeApp;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RhodesTourist/RhodesTourist-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -664,10 +696,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RhodesTourist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = RhodesTourist;
+				PRODUCT_NAME = BealeApp;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RhodesTourist/RhodesTourist-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -687,7 +721,7 @@
 				);
 				INFOPLIST_FILE = RhodesTouristTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = RhodesTouristTests;
+				PRODUCT_NAME = BealeAppTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -702,7 +736,7 @@
 				);
 				INFOPLIST_FILE = RhodesTouristTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = RhodesTouristTests;
+				PRODUCT_NAME = BealeAppTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -710,7 +744,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA9F7D9C19B8D00A007CAB02 /* Build configuration list for PBXProject "RhodesTourist" */ = {
+		CA9F7D9C19B8D00A007CAB02 /* Build configuration list for PBXProject "BealeApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA9F7DBF19B8D00B007CAB02 /* Debug */,
@@ -719,7 +753,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA9F7DC119B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "RhodesTourist" */ = {
+		CA9F7DC119B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "BealeApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA9F7DC219B8D00B007CAB02 /* Debug */,
@@ -728,7 +762,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA9F7DC419B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "RhodesTouristTests" */ = {
+		CA9F7DC419B8D00B007CAB02 /* Build configuration list for PBXNativeTarget "BealeAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA9F7DC519B8D00B007CAB02 /* Debug */,

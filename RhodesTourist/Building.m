@@ -82,14 +82,16 @@
 {
     CGFloat width = 320; //!!!!!!Needs to be frame width... will break on iphone 6 and 6+
     CGFloat angle = -(atan2(deviceMotion.gravity.y, deviceMotion.gravity.x) + M_PI_2);
-    CGFloat y = 400 + 590 * deviceMotion.gravity.z;
+    //heading -= M_PI_2;
+    CGFloat y = 200 + 590 * deviceMotion.gravity.z;
     
     CGFloat offset = [self bearingToBuilding:heading Location:userLocation] - heading;
+    offset += 180; //It's turned around, not sure why
     if (fabs(offset) > 180)
         offset = 360 - fabs(offset);
     
     
-    CGFloat x = 500 + (offset - 90 * sin(angle)) * (width/27); //screen size/FoV
+    CGFloat x = 160 + (offset - 90 * sin(angle)) * (width/30); //screen size/FoV
     if (fabs(x - self.buildingLabel.center.x)>1 || fabs(y - self.buildingLabel.center.y)>1) { //Offset enough to move
         /* Rotation to be added later maybe
         CALayer *layer = building.buildingLabel.layer;
@@ -105,6 +107,7 @@
         CGFloat distance = [self.location distanceFromLocation:userLocation] * 3.28; //Meters to feet
         self.distanceLabel.text = [NSString stringWithFormat:@"%i Feet", (int)distance];
         self.buildingLabel.center = CGPointMake(x, y);
+        //NSLog(@"%f %f", self.buildingLabel.center.x, self.buildingLabel.center.y);
         self.distanceLabel.center = CGPointMake(x, y + self.buildingLabel.frame.size.height);
         
     }

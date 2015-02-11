@@ -11,9 +11,12 @@
 @interface HomeView : UIView <UIScrollViewDelegate, UIPageViewControllerDelegate> {
 
 }
+@property id             delegate;
 @property UIScrollView * verticalScrollView;
 @property UIScrollView * featuredView;
 @property UIPageControl* featuredViewControll;
 
+- (id)initWithFrame:(CGRect)frame Delegate:(id) delegate;
+- (void)presentBuildingInformationWithId:(NSInteger) buildingId;
 @end
 

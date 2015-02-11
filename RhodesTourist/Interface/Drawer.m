@@ -53,11 +53,11 @@
     [UIView animateWithDuration:0.2 animations:^{
         
         for (UIView * view in contentViews) {
-            view.center = CGPointMake(view.frame.size.width/2 + 100, view.center.y);
+            view.center = CGPointMake(view.frame.size.width/2 - 100, view.center.y);
         }
         if (self.extraViewsToMove) {
             for (UIView * view in self.extraViewsToMove) {
-                view.center = CGPointMake(view.frame.size.width/2 + 100, view.center.y);
+                view.center = CGPointMake(view.frame.size.width/2 - 100, view.center.y);
             }
         }
     }];
