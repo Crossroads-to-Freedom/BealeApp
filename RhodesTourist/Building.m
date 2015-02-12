@@ -85,8 +85,13 @@
     //heading -= M_PI_2;
     CGFloat y = 200 + 590 * deviceMotion.gravity.z;
     
-    CGFloat offset = [self bearingToBuilding:heading Location:userLocation] - heading;
-    offset += 180; //It's turned around, not sure why
+    CGFloat bearing = [self bearingToBuilding:heading Location:userLocation];
+    if (bearing < 0)
+        bearing += 360;
+    if (heading < 0)
+        heading += 360;
+    CGFloat offset = bearing - heading;
+    
     if (fabs(offset) > 180)
         offset = 360 - fabs(offset);
     
@@ -149,6 +154,7 @@
   return oddNodes;
   
 }
+
 
 
 @end

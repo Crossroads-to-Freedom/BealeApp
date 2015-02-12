@@ -21,6 +21,7 @@
 #import "VRCameraViewController.h"
 #import "PointsOfInterestView.h"
 #import "WifiStatus.h"
+#import "SQLiteManager.h"
 #import "Drawer.h"
 #import "MovingUIView.h"
 #import "BuildingInformationViewController.h"
@@ -46,6 +47,7 @@
     
     
     //<=========== Utility
+    SQLiteManager * database;
     BOOL showingAlert;
     NSMutableArray * alertQue;
     Alert * alertManager;

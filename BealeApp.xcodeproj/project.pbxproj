@@ -52,11 +52,13 @@
 		CABBC5621A8C0B4100B36FCE /* settings-75.png in Resources */ = {isa = PBXBuildFile; fileRef = CABBC5611A8C0B4100B36FCE /* settings-75.png */; };
 		CABBC5641A8C0BD300B36FCE /* home-75.png in Resources */ = {isa = PBXBuildFile; fileRef = CABBC5631A8C0BD300B36FCE /* home-75.png */; };
 		CABBC5661A8C0C2200B36FCE /* slr_camera2-75.png in Resources */ = {isa = PBXBuildFile; fileRef = CABBC5651A8C0C2200B36FCE /* slr_camera2-75.png */; };
+		CABBC5681A8C5EE100B36FCE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CABBC5671A8C5EE000B36FCE /* libsqlite3.dylib */; };
 		CABFAB5A19B901CA000EC0B5 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = CABFAB5919B901CA000EC0B5 /* Building.m */; };
 		CABFAB5F19B91828000EC0B5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABFAB5E19B91828000EC0B5 /* CoreMotion.framework */; };
 		CAC7D42919CA1055002C0867 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC7D42819CA1055002C0867 /* Asset.m */; };
 		CADD5B2019BA469700BABDC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CADD5B1F19BA469700BABDC7 /* AVFoundation.framework */; };
 		CADD5B2219BA469B00BABDC7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CADD5B2119BA469B00BABDC7 /* AssetsLibrary.framework */; };
+		CAE825171A8C50F800058851 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE825161A8C50F800058851 /* SQLiteManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,7 @@
 		CABBC5611A8C0B4100B36FCE /* settings-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-75.png"; sourceTree = "<group>"; };
 		CABBC5631A8C0BD300B36FCE /* home-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-75.png"; sourceTree = "<group>"; };
 		CABBC5651A8C0C2200B36FCE /* slr_camera2-75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera2-75.png"; sourceTree = "<group>"; };
+		CABBC5671A8C5EE000B36FCE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CABFAB5319B8F8E9000EC0B5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CABFAB5819B901CA000EC0B5 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
 		CABFAB5919B901CA000EC0B5 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
@@ -156,6 +159,9 @@
 		CAC7D42819CA1055002C0867 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		CADD5B1F19BA469700BABDC7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CADD5B2119BA469B00BABDC7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CAE825141A8C4E0A00058851 /* app.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = app.sqlite; sourceTree = "<group>"; };
+		CAE825151A8C50F800058851 /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
+		CAE825161A8C50F800058851 /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CABBC5681A8C5EE100B36FCE /* libsqlite3.dylib in Frameworks */,
 				CADD5B2219BA469B00BABDC7 /* AssetsLibrary.framework in Frameworks */,
 				CADD5B2019BA469700BABDC7 /* AVFoundation.framework in Frameworks */,
 				CABFAB5F19B91828000EC0B5 /* CoreMotion.framework in Frameworks */,
@@ -221,6 +228,8 @@
 				CA7B7CAD1A734076005E8CAB /* WifiStatus.m */,
 				CA7B7CCF1A7340D9005E8CAB /* CLLocation+Utils.h */,
 				CA7B7CD01A7340D9005E8CAB /* CLLocation+Utils.m */,
+				CAE825151A8C50F800058851 /* SQLiteManager.h */,
+				CAE825161A8C50F800058851 /* SQLiteManager.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -337,6 +346,7 @@
 		CA9F7D9819B8D00A007CAB02 = {
 			isa = PBXGroup;
 			children = (
+				CABBC5671A8C5EE000B36FCE /* libsqlite3.dylib */,
 				CADD5B2119BA469B00BABDC7 /* AssetsLibrary.framework */,
 				CADD5B1F19BA469700BABDC7 /* AVFoundation.framework */,
 				CABFAB5E19B91828000EC0B5 /* CoreMotion.framework */,
@@ -360,6 +370,7 @@
 		CA9F7DA319B8D00A007CAB02 /* RhodesTourist */ = {
 			isa = PBXGroup;
 			children = (
+				CAE825141A8C4E0A00058851 /* app.sqlite */,
 				CA7B7CAF1A7340B8005E8CAB /* AFNetworking */,
 				CA7B7CAB1A734052005E8CAB /* Utility */,
 				CA7B7CA11A733FE8005E8CAB /* Interface */,
@@ -549,6 +560,7 @@
 				CA7B7CAA1A73402F005E8CAB /* ProgressView.m in Sources */,
 				CA7B7CCB1A7340B8005E8CAB /* AFURLRequestSerialization.m in Sources */,
 				CABFAB5A19B901CA000EC0B5 /* Building.m in Sources */,
+				CAE825171A8C50F800058851 /* SQLiteManager.m in Sources */,
 				CAC7D42919CA1055002C0867 /* Asset.m in Sources */,
 				CA7B7CE71A7341BB005E8CAB /* AVCamPreviewView.m in Sources */,
 				CA0239941A89649400D70F77 /* GridView.m in Sources */,

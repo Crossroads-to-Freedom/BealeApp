@@ -47,8 +47,10 @@
     [self.locationManager startUpdatingLocation];
     self.motionManager = [[CMMotionManager alloc] init];
     
-    locations = [NSMutableArray new];
     
+    database = [[SQLiteManager alloc] init];
+    //[NSThread detachNewThreadSelector:@selector(loadBuildings) toTarget:database withObject:nil];
+    [database loadBuildings];
     
     //<============== Create Views
     
@@ -58,7 +60,7 @@
     cameraView.view.frame = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-60);
     cameraView.motionManager = self.motionManager;
     cameraView.locationManager = self.locationManager;
-    cameraView.locations = locations;
+    cameraView.locations = database.buildingList;
     [cameraView viewWillAppear:YES];
     [cameraView viewDidAppear:YES];
     [self.view addSubview:cameraView.view];
@@ -70,11 +72,26 @@
     
     
     
+    [self loadNearbyBuildings];
+    for (UITabBarItem * item in tabBar.items) {
+        if      (item.tag == 1)
+            item.image = [self imageWithImage:[UIImage imageNamed:@"home-75.png"] scaledToSize:CGSizeMake(30, 30)];
+        else if (item.tag == 2)
+            item.image = [self imageWithImage:[UIImage imageNamed:@"map_marker-256.png"] scaledToSize:CGSizeMake(30, 30)];
+        else if (item.tag == 3)
+            item.image = [self imageWithImage:[UIImage imageNamed:@"slr_camera2-75.png"] scaledToSize:CGSizeMake(30, 30)];
+        else if (item.tag == 5)
+            item.image = [self imageWithImage:[UIImage imageNamed:@"settings-75.png"] scaledToSize:CGSizeMake(30, 30)];
+        
+    }
     
     [self.view bringSubviewToFront:tabBar];
     //Utilities
     wifiStatus = [WifiStatus new];
+    if (!wifiStatus.isWiFiEnabled)
+        [alertManager alert:@"Enable wifi to increase location accuracy"];
     alertManager = [[Alert alloc] initWithSUperView:self.view];
+    
     
     
 }
@@ -91,21 +108,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
     //Check For Wifi
-    if (!wifiStatus.isWiFiEnabled)
-        [alertManager alert:@"Enable wifi to increase location accuracy"];
     
-    [self loadNearbyBuildings];
-    for (UITabBarItem * item in tabBar.items) {
-        if      (item.tag == 1)
-            item.image = [self imageWithImage:[UIImage imageNamed:@"home-75.png"] scaledToSize:CGSizeMake(30, 30)];
-        else if (item.tag == 2)
-            item.image = [self imageWithImage:[UIImage imageNamed:@"map_marker-256.png"] scaledToSize:CGSizeMake(30, 30)];
-        else if (item.tag == 3)
-            item.image = [self imageWithImage:[UIImage imageNamed:@"slr_camera2-75.png"] scaledToSize:CGSizeMake(30, 30)];
-        else if (item.tag == 5)
-            item.image = [self imageWithImage:[UIImage imageNamed:@"settings-75.png"] scaledToSize:CGSizeMake(30, 30)];
-        
-    }
 
 }
 
@@ -246,8 +249,6 @@
     } else if (item.tag == 5) {
         [self.view bringSubviewToFront:homeView];
         [self.view bringSubviewToFront:tabBar];
-    } else {
-        NSLog(@"???");
     }
 }
 
