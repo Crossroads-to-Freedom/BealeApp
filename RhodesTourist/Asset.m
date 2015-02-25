@@ -18,12 +18,82 @@
     return self;
 }
 
-- (id)initWithInterview:(NSInteger) rds Segments:(NSArray *) segments{
-    if ((self = [super init])) {  
-        self.rds = rds;
+- (id)initWithImageUrl:(NSString*) url{
+    if ((self = [super init])) {
+        imageUrl = url;
+        imageUrl = [imageUrl stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         self.assetType = 2;
     }
     return self;
+}
+
+- (id)initWithInterview:(NSInteger) rds Segments:(NSArray *) segments{
+    if ((self = [super init])) {  
+        self.rds = rds;
+        self.assetType = 3;
+    }
+    return self;
+}
+
+- (UIImageView *) assetImageViewWithSize:(CGSize) size
+{
+    UIImageView * imageView = [[UIImageView alloc] init];
+    imageView.backgroundColor = [UIColor blueColor];
+    if (!assetImage)
+    {
+        NSString * fullUrl = [NSString stringWithFormat:@"http://%@", imageUrl];
+        NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:fullUrl]];
+        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //NSLog(@"Response: %@", responseObject);
+            assetImage = (UIImage *)responseObject;
+            imageView.image = [self image:assetImage.copy toSize:size];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Image error: %@", error);
+        }];
+        [requestOperation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+            NSLog(@"Progress: %lld/%lld", totalBytesWritten, totalBytesExpectedToWrite);
+        }];
+        [requestOperation start];
+        
+        
+    }
+    else
+    {
+        imageView.image = [self image:assetImage.copy toSize:size];
+    }
+    //imageView.size = imageView.image.size;
+    return imageView; 
+}
+
+
+
+- (UIImage *) image:(UIImage *) image toSize:(CGSize) size
+{
+    //NSLog(@"Coverting %f, %f to %f, %f", image.size.width, image.size.height, size.width, size.height);
+    float ratio;
+    if (fabs(size.height/image.size.height - 1) < fabs(size.width/image.size.width - 1))
+        ratio = size.height/image.size.height;
+        //ratio = size.width/image.size.width;
+    else
+        ratio = size.width/image.size.width;
+        //ratio = size.height/image.size.height;
+    //NSLog(@"Ratio %f", ratio);
+    //Resize
+    CGSize newSize = CGSizeMake(image.size.width * ratio, image.size.height * ratio);
+    //NSLog(@"%f %f", newSize.width, newSize.height);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 1.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //Crop
+    CGImageRef imageRef = CGImageCreateWithImageInRect([newImage CGImage], CGRectMake(0, 0, size.width, size.height));
+    //CGRectMake((newSize.width-size.width)/2
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return cropped;
 }
 
 - (void) loadThumbnail

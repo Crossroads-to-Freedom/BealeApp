@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "Building.h"
+#import "Asset.h"
 @interface SQLiteManager : NSObject {
     sqlite3 *_database;
     

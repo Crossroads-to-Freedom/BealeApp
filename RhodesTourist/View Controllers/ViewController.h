@@ -17,7 +17,7 @@
 #import "Alert.h"
 
 #import "DrawerTableView.h"
-#import "HomeView.h"
+#import "HomeTableView.h"
 #import "VRCameraViewController.h"
 #import "PointsOfInterestView.h"
 #import "WifiStatus.h"
@@ -25,7 +25,7 @@
 #import "Drawer.h"
 #import "MovingUIView.h"
 #import "BuildingInformationViewController.h"
-
+#import "MapView.h"
 @interface ViewController : UIViewController <CLLocationManagerDelegate, UITabBarControllerDelegate, UITabBarDelegate> {
     NSMutableArray * locations;
 
@@ -33,9 +33,10 @@
     
     IBOutlet UITabBar * tabBar;
     
-    HomeView               * homeView;
+    HomeTableView          * homeView;
+    MapView                * mapView;
     VRCameraViewController * cameraView;
-    PointsOfInterestView * pointsOfInterestView;
+    PointsOfInterestView   * pointsOfInterestView;
         
     
     Building * currentBuilding;

@@ -1,0 +1,11 @@
+#To Do
+
+1. add a timeline throughout the app
+    Dial images
+    Timeline Images
+3. put search in settings
+    Make a settings
+5. Map View
+    
+4. social media feed view
+    Social Media Icon

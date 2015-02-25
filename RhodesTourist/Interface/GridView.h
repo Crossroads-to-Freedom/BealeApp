@@ -1,16 +1,26 @@
 //
 //  GridView.h
-//  RhodesTourist
+//  BealeApp
 //
-//  Created by Will Cobb on 2/9/15.
+//  Created by Will Cobb on 2/12/15.
 //  Copyright (c) 2015 Apprentice Media LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface GridView : UIView
+@protocol GridViewDelegate;
 
-@property CGFloat sideLength;
-@property NSInteger numberOfRows;
-@property CGFloat viewOffset;
+@interface GridView : UITableView <UITableViewDataSource, UITableViewDelegate> {
+    CGFloat sideLength;
+}
+
+
+@property id delegateView;
+
+@end
+
+@protocol GridViewDelegate <NSObject>
+
+@required
+- (void) selectedGridNumber:(NSInteger) number;
 @end

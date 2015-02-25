@@ -11,7 +11,11 @@
 #import "AFHTTPRequestOperation.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "UIImageView+AFNetworking.h"
-@interface Asset : NSObject
+
+@interface Asset : NSObject {
+    NSString     * imageUrl;
+    UIImage      * assetImage;
+}
 
 @property NSInteger     rds;
 @property UIImageView * thumbnail;
@@ -19,7 +23,11 @@
 @property NSMutableDictionary * assetData;
 
 - (id)initWithArticle:(NSInteger) rds;
+- (id)initWithImageUrl:(NSString *) imageUrl;
 - (id)initWithInterview:(NSInteger) rds Segments:(NSArray *) segments;
+
+- (UIImageView *) assetImageViewWithSize:(CGSize) size;
+
 - (void) loadThumbnail;
 
 @end

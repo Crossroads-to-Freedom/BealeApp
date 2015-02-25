@@ -12,8 +12,9 @@
 #import <CoreMotion/CoreMotion.h>
 #import "CLLocation+Utils.h"
 #import "Asset.h"
+#import "MapAnnotation.h"
 @interface Building : NSObject {
-    
+
 }
 - (id)initWithData:(NSMutableDictionary *) data;
 - (BOOL) isInViewOfHeading:(CGFloat) heading Location:(CLLocation *) location;
@@ -24,9 +25,12 @@
 
 @property CLLocation * location;
 @property NSString   * name;
-@property CGFloat      buildingId;
-@property NSMutableArray * assets;
-@property NSMutableArray * bounds;
+@property NSString   * descriptionInfo;
+@property NSInteger    Id;
+@property Asset      * icon;
+@property Asset      * banner;
+@property NSArray    * assets;
+@property NSArray    * bounds;
 @property UILabel    * buildingLabel;
 @property UILabel       * distanceLabel;
 

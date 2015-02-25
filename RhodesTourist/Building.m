@@ -19,7 +19,7 @@
     if ((self = [super init])) {
         self.location     = [[CLLocation alloc] initWithLatitude:[data[@"lat"] floatValue] longitude:[data[@"lon"] floatValue]];
         self.name         = data[@"name"];
-        self.buildingId   = [data[@"id"] longValue];
+        self.Id           = [data[@"id"] longValue];
         self.bounds       = data[@"bounds"];
         self.buildingLabel= [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 59)];
         self.buildingLabel.text = self.name;
@@ -34,15 +34,22 @@
         
         self.assets = [NSMutableArray new];
         //Load assets
-        for (NSDictionary * assetDict in data[@"assets"]) {
+        /*for (NSDictionary * assetDict in data[@"assets"]) {
             if ([assetDict[@"type"] integerValue] == 1) { //Article
                 [self.assets addObject:[[Asset alloc] initWithArticle:[assetDict[@"rds"] integerValue]]];
             } else if ([assetDict[@"type"] integerValue] == 2) { //Interview
                 [self.assets addObject:[[Asset alloc] initWithInterview:[assetDict[@"rds"] integerValue] Segments:assetDict[@"segments"]]];
             }
             
-        }
+        }*/
         
+        
+    }
+    return self;
+}
+
+- (id)init {
+    if ((self = [super init])) {
         
     }
     return self;
