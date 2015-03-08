@@ -42,6 +42,7 @@
     if (!assetImage)
     {
         NSString * fullUrl = [NSString stringWithFormat:@"http://%@", imageUrl];
+        NSLog(@"Loading %@", fullUrl);
         NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:fullUrl]];
         AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         requestOperation.responseSerializer = [AFImageResponseSerializer serializer];

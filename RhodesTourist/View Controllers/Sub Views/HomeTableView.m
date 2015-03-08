@@ -7,14 +7,16 @@
 //
 
 #import "HomeTableView.h"
-
 @implementation HomeTableView
 
 
 -(id) initWithFrame:(CGRect)frame Delegate:(id) delegate Database:(SQLiteManager *) database;
 {
     self = [super initWithFrame:frame];
-    //self.backgroundColor = [UIColor colorWithRed:60.0/256 green:61.0/256 blue:66.0/256 alpha:1];
+    UIImageView * backgroundView = [[UIImageView alloc] initWithFrame:self.frame];
+    backgroundView.image = [UIImage imageNamed:@"CreamBG.png"];
+    self.backgroundView=backgroundView;
+    self.backgroundColor = [UIColor clearColor];
     self.viewControllerDelegate = delegate;
     self.database = database;
     
@@ -30,7 +32,7 @@
     self.featuredView.delegate = self;
     
     //NSArray *colors = [NSArray arrayWithObjects:[UIColor redColor], [UIColor greenColor], [UIColor blueColor], [UIColor redColor], [UIColor greenColor], [UIColor blueColor], nil];
-    NSArray * featuredSiteIds = @[@2, @2];
+    NSArray * featuredSiteIds = @[@1, @2, @4, @6, @1, @2]; //first 2 == last 2
     for (int i = 0; i < featuredSiteIds.count; i++) {
         CGRect frame;
         frame.origin.x = self.featuredView.frame.size.width * i;
@@ -56,6 +58,7 @@
     }
     
     self.featuredView.contentSize = CGSizeMake(self.featuredView.frame.size.width * featuredSiteIds.count, self.featuredView.frame.size.height);
+    self.featuredView.contentOffset = CGPointMake(self.featuredView.frame.size.width, 0);
     
     self.tableHeaderView = self.featuredView;
     
@@ -83,53 +86,130 @@
     UILabel * title = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.frame.size.width, 30)];
     title.font = [UIFont boldSystemFontOfSize:16];
     [cell addSubview:title];
-    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [UIView new];
     UIScrollView * scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, 150, 150)];
-    //scrollView.backgroundColor = [UIColor blueColor];
+    scrollView.backgroundColor = [UIColor clearColor];
     scrollView.bounces = NO;
-    scrollView.pagingEnabled = YES;
+    //scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.clipsToBounds = NO;
+    scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+    scrollView.delegate = self;
     [cell addSubview:scrollView];
+    
+    NSArray * siteIds;
+    
     if (indexPath.row == 0) {
         title.text = @"Near Me";
-        
-        
-        NSArray * featuredSiteIds = @[@1, @2, @2, @2];
-        for (int i = 0; i < featuredSiteIds.count; i++) {
-            CGRect frame;
-            frame.origin.x = scrollView.frame.size.width * i;
-            frame.origin.y = 0;
-            frame.size = scrollView.frame.size;
-            
-            Building * building = [self.database buildingWithId:[featuredSiteIds[i] intValue]];
-            UIImageView * banner = [building.banner assetImageViewWithSize:frame.size];
-            banner.tag = [featuredSiteIds[i] integerValue]; //Building Id
-            banner.frame = CGRectMake(5 + frame.origin.x, 0, frame.size.width-10, frame.size.height);
-            banner.backgroundColor = [UIColor greenColor];
-            UITapGestureRecognizer * oneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedView:)];
-            [banner addGestureRecognizer:oneTap];
-            [scrollView addSubview:banner];
-            
-        }
-        
-        scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * featuredSiteIds.count, scrollView.frame.size.height);
-        ClipView *subview = [[ClipView alloc] initWithFrame:cell.frame];
-        subview.clipsToBounds = NO;
-        subview.scrollView= scrollView;
-        [subview addSubview:scrollView];
-        [cell addSubview:subview];
-        
+        siteIds = @[@1, @2, @1, @4, @6, @4, @1, @2, @1, @2];
     } else if (indexPath.row == 1) {
         title.text = @"Recent";
         [cell addSubview:title];
     } else if (indexPath.row == 2) {
         title.text = @"Favorites";
         [cell addSubview:title];
+    } else if (indexPath.row == 3) {
+        title.text = @"3";
+        [cell addSubview:title];
+    } else if (indexPath.row == 4) {
+        title.text = @"4";
+        [cell addSubview:title];
     }
+    else if (indexPath.row == 4) {
+        title.text = @"5";
+        [cell addSubview:title];
+    }
+    
+    for (int i = 0; i < siteIds.count; i++) {
+        CGRect frame;
+        frame.origin.x = scrollView.frame.size.width * i;
+        frame.origin.y = 0;
+        frame.size = scrollView.frame.size;
+        
+        Building * building = [self.database buildingWithId:[siteIds[i] intValue]];
+        UIImageView * banner = [building.banner assetImageViewWithSize:frame.size];
+        banner.layer.cornerRadius = 10;
+        banner.clipsToBounds = YES;
+        banner.tag = [siteIds[i] integerValue]; //Building Id
+        banner.frame = CGRectMake(5 + frame.origin.x, 0, frame.size.width-10, frame.size.height);
+        banner.backgroundColor = [UIColor greenColor];
+        UITapGestureRecognizer * oneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedView:)];
+        [banner addGestureRecognizer:oneTap];
+        [scrollView addSubview:banner];
+        
+    }
+    
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * siteIds.count, scrollView.frame.size.height);
+    scrollView.contentOffset = CGPointMake(scrollView.frame.size.width, 0);
+    ClipView *subview = [[ClipView alloc] initWithFrame:cell.frame];
+    subview.backgroundColor = [UIColor clearColor];
+    subview.clipsToBounds = NO;
+    subview.scrollView= scrollView;
+    [subview addSubview:scrollView];
+    [cell addSubview:subview];
+    
     return cell;
 }
+- (void) scrollViewDidScroll:(UIScrollView *)scroll
+{
+    if ([scroll isEqual:self.featuredView])
+    {
+        if (scroll.contentOffset.x == scroll.contentSize.width - scroll.frame.size.width)
+        {
+            scroll.contentOffset = CGPointMake(scroll.frame.size.width, scroll.contentOffset.y);
+        }
+        else if (scroll.contentOffset.x == 0)
+        {
+            scroll.contentOffset = CGPointMake(scroll.contentSize.width - scroll.frame.size.width * 2, scroll.contentOffset.y);
+            //NSLog(@"Offset: %lu", (unsigned long)(scroll.contentOffset.x / scroll.bounds.size.width + 0.5f));
+        }
+    }
+    else if (![scroll isEqual:self])
+    {
+        if (scroll.contentOffset.x >= scroll.contentSize.width - scroll.frame.size.width * 3)
+        {
+            scroll.contentOffset = CGPointMake(scroll.frame.size.width, scroll.contentOffset.y);
+        }
+        else if (scroll.contentOffset.x == 0)
+        {
+            scroll.contentOffset = CGPointMake(scroll.contentSize.width - scroll.frame.size.width * 4, scroll.contentOffset.y);
+            //NSLog(@"Offset: %lu", (unsigned long)(scroll.contentOffset.x / scroll.bounds.size.width + 0.5f));
+        }
+    }
+}
 
+- (void) scrollViewWillEndDragging:(UIScrollView *)scroll withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    if ([scroll isEqual:self.featuredView])
+    {
+        
+    }
+    else
+    {
+        //This is the index of the "page" that we will be landing at
+        NSUInteger nearestIndex = (NSUInteger)(targetContentOffset->x / scroll.bounds.size.width + 0.5f);
+        nearestIndex = MAX( MIN( nearestIndex, scroll.contentSize.width/scroll.frame.size.width ), 0 ); //yourPagesArray.count - 1 ~ 5
+        
+        //This is the actual x position in the scroll view
+        CGFloat xOffset = nearestIndex * scroll.bounds.size.width;
+        
+        //Prevent Stick
+        xOffset = xOffset==0?1:xOffset; //Sets it to 1 if 0
+        
+        *targetContentOffset = CGPointMake(xOffset, targetContentOffset->y);
+    }
+}
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if( !decelerate )
+    {
+        NSUInteger currentIndex = (NSUInteger)(scrollView.contentOffset.x / scrollView.bounds.size.width);
+        
+        [scrollView setContentOffset:CGPointMake(scrollView.bounds.size.width * currentIndex, 0) animated:YES];
+    }
+}
 
 - (void)tappedView:(UITapGestureRecognizer *) tap
 {
@@ -148,13 +228,7 @@
 }
 
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    /*CGRect rect = self.tableHeaderView.frame;
-    rect.origin.y = MAX(0, self.contentOffset.y);
-    self.tableHeaderView.frame = rect;
-    NSLog(@"%f", self.tableHeaderView.frame.origin.y);*/
-}
+
 
 @end
 

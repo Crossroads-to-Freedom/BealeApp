@@ -15,6 +15,7 @@
 #import "Building.h"
 #import "CLLocation+Utils.h"
 #import "Alert.h"
+#import "LASIImageView.h"
 
 #import "DrawerTableView.h"
 #import "HomeTableView.h"

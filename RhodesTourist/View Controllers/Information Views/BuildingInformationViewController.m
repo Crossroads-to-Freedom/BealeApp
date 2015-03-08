@@ -4,60 +4,98 @@
 //
 //  Created by Will Cobb on 1/27/15.
 //  Copyright (c) 2015 Apprentice Media LLC. All rights reserved.
-//
+// 37.4304
 
 #import "BuildingInformationViewController.h"
 #define AC_RED  0.933//0.0468
 #define AC_GREEN  0.2//0.6523
 #define AC_BLUE  0.133//0.8672
 
-@implementation BuildingInformationViewController
+@implementation BuildingInformationViewController {
+    CGFloat firstAngle;
+    UIImageView * wheelImage;
+    CGFloat wheelRotation;
+}
 
 
 -(void) viewDidLoad
 {
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    UIPanGestureRecognizer * wheelDrag = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self.view addGestureRecognizer:wheelDrag];
     
     
-    float buttonHeight = self.view.frame.size.width/3.0;
-    int imageViewHeight = (self.view.frame.size.height - buttonHeight*2) * (2/5.0);
-    int descriptionViewHeight = self.view.frame.size.height - buttonHeight*2 - imageViewHeight;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    wheelImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wheel.png"]];
+    wheelImage.frame = CGRectMake(-11, 69, 342, 342);
+    wheelRotation = 0;
+    [self.view addSubview:wheelImage];
     
-    self.mainImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, imageViewHeight)];
-    self.mainImage.image = [UIImage imageNamed:@"BG1.png"];
-    [self.view addSubview:self.mainImage];
+    UIImageView * backgroundView =[[UIImageView alloc] initWithFrame:CGRectMake(0, 64, 320, 990/2)];
+    backgroundView.image = [self image:[UIImage imageNamed:@"DialBG.png"] croppedToSize:self.view.frame.size];
+    [self.view addSubview:backgroundView];
     
-    self.descriptionView = [[UIView alloc] initWithFrame:CGRectMake(0, imageViewHeight, self.view.frame.size.width, descriptionViewHeight)];
-    UILabel * descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, self.descriptionView.frame.size.width, self.descriptionView.frame.size.height)];
-    descriptionLabel.numberOfLines = 0;
-    descriptionLabel.text = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-    [descriptionLabel sizeToFit];
-    [self.descriptionView addSubview:descriptionLabel];
-    [self.view addSubview:self.descriptionView];
+    UIImageView * testRing = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 342, 342)];
+    testRing.image = [self createMenuRingWithFrame:testRing.frame];
+    [wheelImage addSubview:testRing];
+    //[self runSpinAnimationOnView:wheelImage duration:5 rotations:0.5];
     
-    self.choicesView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - buttonHeight*2, self.view.frame.size.width, buttonHeight*2)];
-    self.choicesView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.choicesView];
-    
-    
-    for (int i = 0; i < 2; i++)
-    {
-        for (int j = 0; j <3; j++)
-        {
-            NSLog(@"%i %i", i, j);
-            UIButton * tileButton = [[UIButton alloc] initWithFrame:CGRectMake(j * buttonHeight, i * buttonHeight, buttonHeight, buttonHeight)];
-            //tileButton.backgroundColor = [UIColor blueColor];
-            tileButton.layer.borderWidth = .5f;
-            tileButton.layer.borderColor = [UIColor grayColor].CGColor; 
-            int k = j + i * 3;
-            if (k==0) {
-                
-            }
-            //NSLog(@" %f %f %f %f", tileButton.frame.origin.x, tileButton.frame.origin.y, tileButton.frame.size.width, tileButton.frame.size.height);
-            [self.choicesView addSubview:tileButton];
+}
+
+
+
+- (void) pan:(UIPanGestureRecognizer *) sender
+{
+    CGPoint center = CGPointMake(self.view.frame.size.width/2, 240);
+    CGPoint touch = CGPointMake([sender locationInView:self.view].x, [sender locationInView:self.view].y);
+    CGFloat distance = sqrtf(powf((touch.x - center.x), 2) + powf((touch.y - center.y), 2));
+    CGFloat angle = [self pointPairToBearingDegrees:center secondPoint:touch];
+    NSLog(@"%f", distance);
+    if ((!firstAngle || firstAngle == 0) && distance < 175 && distance > 25){
+        firstAngle = angle;
+    } else {
+        if (sender.state == UIGestureRecognizerStateEnded || distance > 175 || distance < 25) {
+            firstAngle = 0;
+        } else {
+            //NSLog(@"%f", firstAngle - angle);
+            [self rotateWheelRadians:(angle-firstAngle) * 0.01745];
+            firstAngle = angle;
         }
     }
-    
-    
+}
+
+- (CGFloat) pointPairToBearingDegrees:(CGPoint)startingPoint secondPoint:(CGPoint) endingPoint
+{
+    CGPoint originPoint = CGPointMake(endingPoint.x - startingPoint.x, endingPoint.y - startingPoint.y); // get origin point to origin by subtracting end from start
+    float bearingRadians = atan2f(originPoint.y, originPoint.x); // get bearing in radians
+    float bearingDegrees = bearingRadians * (180.0 / M_PI); // convert to degrees
+    bearingDegrees = (bearingDegrees > 0.0 ? bearingDegrees : (360.0 + bearingDegrees)); // correct discontinuity
+    return bearingDegrees;
+}
+
+- (void) runSpinAnimationOnView:(UIView*)view duration:(CGFloat)duration rotations:(CGFloat)rotations
+{
+    [UIView animateWithDuration:duration animations:^{
+        view.transform = CGAffineTransformMakeRotation(M_PI * 2 * rotations);
+    }];
+}
+
+- (void) rotateWheelRadians:(CGFloat) radians
+{
+    wheelImage.transform = CGAffineTransformMakeRotation(wheelRotation + radians);
+    wheelRotation += radians;
+}
+
+- (UIImage *) image:(UIImage *) image croppedToSize:(CGSize) size
+{
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], CGRectMake(0, 0, size.width * 2, MIN(size.height * 2 , image.size.height)));
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return cropped;
 }
 
 - (void) drawStringAtContext:(CGContextRef) context string:(NSString*) text atAngle:(float) angle withRadius:(float) radius
@@ -76,7 +114,7 @@
         char* c = (char*)[letter cStringUsingEncoding:NSASCIIStringEncoding];
         CGSize charSize = [letter sizeWithFont:[UIFont systemFontOfSize:16]];
         
-        NSLog(@"Char %@ with size: %f x %f", letter, charSize.width, charSize.height);
+        //NSLog(@"Char %@ with size: %f x %f", letter, charSize.width, charSize.height);
         
         float x = radius * cos(angle);
         float y = radius * sin(angle);
@@ -93,12 +131,16 @@
     }
 }
 
-/*- (UIImage*) createMenuRingWithFrame:(CGRect)frame
+- (UIImage*) createMenuRingWithFrame:(CGRect)frame
 {
-    CGPoint centerPoint = CGPointMake(frame.size.width / 2, frame.size.height / 2);
+    CGFloat ringWidth = 5.0;
+    CGFloat textRadius = 121;
+    NSArray *sections = @[@"1860", @"1880", @"1900", @"1920", @"1940", @"1960", @"1980", @"2000"];
+    
+    CGPoint centerPoint = CGPointMake((frame.size.width + frame.origin.x) / 2, (frame.size.height + frame.origin.y) / 2);
     char* fontName = (char*)[[UIFont systemFontOfSize:16].fontName cStringUsingEncoding:NSASCIIStringEncoding];
     
-    CGFloat* ringColorComponents = (float*)CGColorGetComponents([UIColor blueColor].CGColor);
+    CGFloat* ringColorComponents = (float*)CGColorGetComponents([UIColor blackColor].CGColor);
     CGFloat* textColorComponents = (float*)CGColorGetComponents([UIColor blackColor].CGColor);
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -107,17 +149,17 @@
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     
     CGContextSelectFont(context, fontName, 18, kCGEncodingMacRoman);
-    CGContextSetRGBStrokeColor(context, ringColorComponents[0], ringColorComponents[1], ringColorComponents[2], ringAlpha);
+    CGContextSetRGBStrokeColor(context, ringColorComponents[0], ringColorComponents[1], ringColorComponents[2], 0);
     CGContextSetLineWidth(context, ringWidth);
     
     CGContextStrokeEllipseInRect(context, CGRectMake(ringWidth, ringWidth, frame.size.width - (ringWidth * 2), frame.size.height - (ringWidth * 2)));
-    CGContextSetRGBFillColor(context, textColorComponents[0], textColorComponents[1], textColorComponents[2], textAlpha);
+    CGContextSetRGBFillColor(context, 0,0,0, 1);
     
     CGContextSaveGState(context);
     CGContextTranslateCTM(context, centerPoint.x, centerPoint.y);
     
     float angleStep = 2 * M_PI / [sections count];
-    float angle = degreesToRadians(90);
+    float angle = 90 * 0.01745;
     
     textRadius = textRadius - 12;
     
@@ -134,10 +176,10 @@
     CGContextRelease(context);
     CGColorSpaceRelease(colorSpace);
     
-    [self saveImage:[UIImage imageWithCGImage:contextImage] withName:@"test.png"];
+    //[self saveImage:[UIImage imageWithCGImage:contextImage] withName:@"test.png"];
     return [UIImage imageWithCGImage:contextImage];
     
-}*/
+}
 
 - (void) selectedGridNumber:(NSInteger) number;
 {

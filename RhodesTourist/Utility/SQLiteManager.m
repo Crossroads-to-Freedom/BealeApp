@@ -35,17 +35,18 @@
     if (sqlite3_prepare_v2(_database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
             int Id = sqlite3_column_int(statement, 0);
-            char *nameChars = (char *) sqlite3_column_text(statement, 1);
-            char *descriptionChars = (char *) sqlite3_column_text(statement, 2);
-            int iconAssetId = sqlite3_column_int(statement, 3);
-            float latitude = sqlite3_column_double(statement, 4);
-            float longitude = sqlite3_column_double(statement, 5);
-            char *boundsChars = (char *) sqlite3_column_text(statement, 6);
-            int bannerAssetId = sqlite3_column_int(statement, 7);
+            
+            char *nameChars = (char *) sqlite3_column_text(statement, 2);
+            char *descriptionChars = (char *) sqlite3_column_text(statement, 3);
+            int iconAssetId = sqlite3_column_int(statement, 4);
+            float latitude = sqlite3_column_double(statement, 5);
+            float longitude = sqlite3_column_double(statement, 6);
+            char *boundsChars = (char *) sqlite3_column_text(statement, 7);
+            int bannerAssetId = sqlite3_column_int(statement, 8);
             
             NSString * bounds = [[NSString alloc] initWithUTF8String:boundsChars];
             
-            NSLog(@"Loading Building: %@", [[NSString alloc] initWithUTF8String:nameChars]);
+            NSLog(@"Loading Building: %@ Banner: %d", [[NSString alloc] initWithUTF8String:nameChars], bannerAssetId);
             
             Building * newBuilding = [[Building alloc] init];
             newBuilding.name = [[NSString alloc] initWithUTF8String:nameChars];
@@ -68,7 +69,7 @@
                     
                     NSString * filePath = [[NSString alloc] initWithUTF8String:filePathChars];
                     
-                    //NSLog(@"Asset: %@", filePath);
+                    NSLog(@"Asset: %@", filePath);
                     if (type == 1) {
                         
                     } else if (type == 2) {

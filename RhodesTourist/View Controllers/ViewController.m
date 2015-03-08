@@ -47,6 +47,7 @@
     [self.locationManager startUpdatingLocation];
     self.motionManager = [[CMMotionManager alloc] init];
     
+    [LASIImageView setSharedImageCache:nil];
     
     database = [[SQLiteManager alloc] init];
     //[NSThread detachNewThreadSelector:@selector(loadBuildings) toTarget:database withObject:nil];
@@ -72,8 +73,6 @@
     //HomeView
     homeView = [[HomeTableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-104) Delegate:self Database:database];
     [self.view addSubview:homeView];
-    
-    
     
     for (UITabBarItem * item in tabBar.items) {
         if      (item.tag == 1)

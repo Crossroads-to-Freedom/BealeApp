@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Building.h"
+#import "CircleLabel.h"
 @interface BuildingInformationViewController : UIViewController {
     
     UIView * navBarView;
-    
+    CircleLabel * circleLabel;
 }
 
 @property Building * buildingData;

@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RhodesTourist/Utility/SQLiteManager.m"
-            timestampString = "446502094.623565"
+            timestampString = "447201154.855707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-loadBuildings"
             landmarkType = "5">
          </BreakpointContent>
