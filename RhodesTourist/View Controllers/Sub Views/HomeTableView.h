@@ -22,5 +22,6 @@
 @property UIPageControl* featuredViewControll;
 
 -(id) initWithFrame:(CGRect)frame Delegate:(id) delegate Database:(SQLiteManager *) database;
-- (void)presentBuildingInformationWithId:(NSInteger) buildingId;
+-(void)presentBuildingInformationWithId:(NSInteger) buildingId;
+
 @end

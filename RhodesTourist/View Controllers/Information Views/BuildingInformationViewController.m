@@ -88,6 +88,7 @@
 {
     wheelImage.transform = CGAffineTransformMakeRotation(wheelRotation + radians);
     wheelRotation += radians;
+   wheelRotation = fmod(wheelRotation, M_2_PI);
 }
 
 - (UIImage *) image:(UIImage *) image croppedToSize:(CGSize) size
