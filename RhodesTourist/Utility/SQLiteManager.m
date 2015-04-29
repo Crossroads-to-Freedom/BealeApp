@@ -29,7 +29,7 @@
 }
 
 - (void) loadBuildings {
-    NSLog(@"A");
+    //NSLog(@"A");
     NSString *query = @"SELECT * FROM building";
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(_database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
@@ -44,9 +44,13 @@
             char *boundsChars = (char *) sqlite3_column_text(statement, 7);
             int bannerAssetId = sqlite3_column_int(statement, 8);
             
-            NSString * bounds = [[NSString alloc] initWithUTF8String:boundsChars];
             
-            NSLog(@"Loading Building: %@ Banner: %d", [[NSString alloc] initWithUTF8String:nameChars], bannerAssetId);
+            
+            NSString * bounds;
+            if (boundsChars)
+                bounds = [[NSString alloc] initWithUTF8String:boundsChars];
+            
+            //NSLog(@"Loading Building: %@ Banner: %d", [[NSString alloc] initWithUTF8String:nameChars], bannerAssetId);
             
             Building * newBuilding = [[Building alloc] init];
             newBuilding.name = [[NSString alloc] initWithUTF8String:nameChars];
@@ -69,27 +73,31 @@
                     
                     NSString * filePath = [[NSString alloc] initWithUTF8String:filePathChars];
                     
-                    NSLog(@"Asset: %@", filePath);
-                    if (type == 1) {
-                        
-                    } else if (type == 2) {
-                        Asset * newAsset = [[Asset alloc] initWithImageUrl:filePath];
-                        [assets addObject:newAsset];
-                    }
+                    //NSLog(@"Asset: %@", filePath);
+                    
                     if (iconAssetId == assetId) {
+                        
                         newBuilding.icon = [[Asset alloc] initWithImageUrl:filePath];
                     } else if (bannerAssetId == assetId) {
                         //NSLog(@"Banner %@", [[NSString alloc] initWithUTF8String:filePathChars]);
                         newBuilding.banner = [[Asset alloc] initWithImageUrl:filePath];
+                    } else {
+                        if (type == 1) {
+                            
+                        } else if (type == 2) {
+                            Asset * newAsset = [[Asset alloc] initWithImageUrl:filePath];
+                            [assets addObject:newAsset];
+                        }
                     }
                 }
             }
+            newBuilding.assets = assets;
             [self.buildingList addObject:newBuilding];
         }
         
         sqlite3_finalize(statement);
     }
-    NSLog(@"B %@", [self buildingWithId:1].name);
+    //NSLog(@"B %@", [self buildingWithId:1].name);
 }
 
 
