@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimeLineTableViewCell : UITableViewCell
+@interface TimeLineTableViewCell : UITableViewCell {
+    int direction;
+}
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier Direction:(int) d;
 
 @end

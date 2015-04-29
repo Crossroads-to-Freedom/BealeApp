@@ -69,11 +69,15 @@
     //MapView
     mapView = [[MapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40) Delegate:self LocationManager:self.locationManager Database:database];
     [self.view addSubview:mapView];
-    
+    //Twitter View
+    twitterView = [[TwitterView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-104)];
+    [self.view addSubview:twitterView];
     //HomeView
     homeView = [[HomeTableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-104) Delegate:self Database:database];
+    self.navigationItem.title = @"Home";
     [self.view addSubview:homeView];
     
+    //Bar
     for (UITabBarItem * item in tabBar.items) {
         if      (item.tag == 1)
             item.image = [self imageWithImage:[UIImage imageNamed:@"home-75.png"] scaledToSize:CGSizeMake(30, 30)];
@@ -81,10 +85,13 @@
             item.image = [self imageWithImage:[UIImage imageNamed:@"map_marker-256.png"] scaledToSize:CGSizeMake(30, 30)];
         else if (item.tag == 3)
             item.image = [self imageWithImage:[UIImage imageNamed:@"slr_camera2-75.png"] scaledToSize:CGSizeMake(30, 30)];
+        else if (item.tag == 4)
+                item.image = [self imageWithImage:[UIImage imageNamed:@"Twitter-64.png"] scaledToSize:CGSizeMake(30, 30)];
         else if (item.tag == 5)
             item.image = [self imageWithImage:[UIImage imageNamed:@"settings-75.png"] scaledToSize:CGSizeMake(30, 30)];
         
     }
+    
     
     [self.view bringSubviewToFront:tabBar];
     //Utilities
@@ -123,6 +130,7 @@
 
 - (void)presentBuildingInformationWithId:(NSInteger) buildingId
 {
+    viewedBuilding = [database buildingWithId:(int)buildingId];
     [self performSegueWithIdentifier:@"RootToBuilding" sender:self];
 }
 
@@ -139,18 +147,23 @@
     NSLog(@"%ld", (long)item.tag);
     if (item.tag == 1) {
         [self.view bringSubviewToFront:homeView];
+        self.navigationItem.title = @"Home";
         [self.view bringSubviewToFront:tabBar];
     } else if (item.tag == 2) {
         [self.view bringSubviewToFront:mapView];
+        self.navigationItem.title = @"Map";
         [self.view bringSubviewToFront:tabBar];
     } else if (item.tag == 3) {
         [self.view bringSubviewToFront:cameraView.view];
+        self.navigationItem.title = @"Camera";
         [self.view bringSubviewToFront:tabBar];
     } else if (item.tag == 4) {
-        [self.view bringSubviewToFront:homeView];
+        [self.view bringSubviewToFront:twitterView];
+        self.navigationItem.title = @"Twitter";
         [self.view bringSubviewToFront:tabBar];
     } else if (item.tag == 5) {
         [self.view bringSubviewToFront:homeView];
+        self.navigationItem.title = @"Settings";
         [self.view bringSubviewToFront:tabBar];
     }
 }

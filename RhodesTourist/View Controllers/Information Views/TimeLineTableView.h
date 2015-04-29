@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TimeLineTableViewCell.h"
+#import "Asset.h"
+#import "Global.h"
 @interface TimeLineTableView : UITableView
+
+@property NSMutableArray * assets;
+-(id) initWithFrame:(CGRect)frame Assets:(NSArray*) assets;
 
 @end

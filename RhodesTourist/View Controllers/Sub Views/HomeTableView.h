@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Global.h"
 #import <Foundation/Foundation.h>
 #import "SQLiteManager.h"
 #import "Building.h"
 #import "Asset.h"
 #import "ClipView.h"
 @interface HomeTableView : UITableView <UITableViewDataSource, UITableViewDelegate> {
-    
+    NSArray * siteArray;
 }
 @property id             viewControllerDelegate;
 @property SQLiteManager* database;

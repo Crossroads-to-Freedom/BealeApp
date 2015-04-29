@@ -17,32 +17,37 @@
     CGFloat wheelRotation;
 }
 
-
 -(void) viewDidLoad
 {
     self.view.backgroundColor = [UIColor blackColor];
-    
+    self.navigationItem.title = self.buildingData.name;
+    self.view.clipsToBounds = YES;
     UIPanGestureRecognizer * wheelDrag = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     [self.view addGestureRecognizer:wheelDrag];
     
-    
-}
-
-- (void) viewDidAppear:(BOOL)animated
-{
     wheelImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wheel.png"]];
     wheelImage.frame = CGRectMake(-11, 69, 342, 342);
     wheelRotation = 0;
     [self.view addSubview:wheelImage];
     
-    UIImageView * backgroundView =[[UIImageView alloc] initWithFrame:CGRectMake(0, 64, 320, 990/2)];
-    backgroundView.image = [self image:[UIImage imageNamed:@"DialBG.png"] croppedToSize:self.view.frame.size];
+    UIImage * dialImage = [UIImage imageNamed:@"DialBG.png"];
+    //UIImageView * backgroundView =[[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/4 - backgroundView.image.size.width/4, 20, backgroundView.image.size.width/2, backgroundView.image.size.height/2)];
+    UIImageView * backgroundView =[[UIImageView alloc] initWithFrame:CGRectMake(-40, 20, 400, 600)];
+    backgroundView.image = dialImage;
     [self.view addSubview:backgroundView];
     
     UIImageView * testRing = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 342, 342)];
     testRing.image = [self createMenuRingWithFrame:testRing.frame];
     [wheelImage addSubview:testRing];
     //[self runSpinAnimationOnView:wheelImage duration:5 rotations:0.5];
+    
+    timeline = [[TimeLineTableView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 300, self.view.frame.size.width, 300) Assets:self.buildingData.assets];
+    timeline.layer.cornerRadius = 8;
+    [self.view addSubview:timeline];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
     
 }
 
@@ -54,7 +59,6 @@
     CGPoint touch = CGPointMake([sender locationInView:self.view].x, [sender locationInView:self.view].y);
     CGFloat distance = sqrtf(powf((touch.x - center.x), 2) + powf((touch.y - center.y), 2));
     CGFloat angle = [self pointPairToBearingDegrees:center secondPoint:touch];
-    NSLog(@"%f", distance);
     if ((!firstAngle || firstAngle == 0) && distance < 175 && distance > 25){
         firstAngle = angle;
     } else {
@@ -62,7 +66,7 @@
             firstAngle = 0;
         } else {
             //NSLog(@"%f", firstAngle - angle);
-            [self rotateWheelRadians:(angle-firstAngle) * 0.01745];
+            [self rotateWheelRadians:(angle-firstAngle) * 0.01745]; //degrees to radians
             firstAngle = angle;
         }
     }
@@ -88,7 +92,13 @@
 {
     wheelImage.transform = CGAffineTransformMakeRotation(wheelRotation + radians);
     wheelRotation += radians;
-   wheelRotation = fmod(wheelRotation, M_2_PI);
+    NSLog(@"%f", wheelRotation/(M_PI * 2));
+    if (wheelRotation < 0)
+        wheelRotation = 0;
+    else if (wheelRotation > M_PI * 2)
+        wheelRotation = M_PI * 2;
+    //wheelRotation = fmod(wheelRotation, M_PI * 2);
+    //timeline.contentOffset = CGPointMake(0, (timeline.frame.size.width/((M_PI * 2) * wheelRotation)));
 }
 
 - (UIImage *) image:(UIImage *) image croppedToSize:(CGSize) size

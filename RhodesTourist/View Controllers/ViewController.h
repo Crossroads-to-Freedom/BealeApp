@@ -9,6 +9,7 @@
 //  Top View Controller that holds each sub view and top layer functions suck as alerts
 
 #import <UIKit/UIKit.h>
+#import "Global.h"
 #import "QuartzCore/QuartzCore.h"
 #import <CoreLocation/CoreLocation.h>
 #import <CoreMotion/CoreMotion.h>
@@ -27,6 +28,7 @@
 #import "MovingUIView.h"
 #import "BuildingInformationViewController.h"
 #import "MapView.h"
+#import "TwitterView.h"
 @interface ViewController : UIViewController <CLLocationManagerDelegate, UITabBarControllerDelegate, UITabBarDelegate> {
     NSMutableArray * locations;
 
@@ -38,7 +40,7 @@
     MapView                * mapView;
     VRCameraViewController * cameraView;
     PointsOfInterestView   * pointsOfInterestView;
-        
+    TwitterView            * twitterView;
     
     Building * currentBuilding;
         BOOL alertedCurrentBuilding;

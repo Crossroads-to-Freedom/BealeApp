@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "SQLiteManager.h"
-@interface MapView : UIView
+#import "MapAnnotation.h"
+#import "Building.h"
+#import "MKAnnotationView+WebCache.h"
+@interface MapView : UIView <MKMapViewDelegate>
 
 @property id                  delegate;
 @property MKMapView         * map;
@@ -17,5 +20,5 @@
 @property SQLiteManager     * database;
 
 -(id) initWithFrame:(CGRect)frame Delegate:(id) delegate LocationManager:(CLLocationManager *) locationManager Database:(SQLiteManager *) database;
-
+-(void)presentBuildingInformationWithId:(NSInteger) buildingId;
 @end

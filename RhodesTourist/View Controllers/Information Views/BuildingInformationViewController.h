@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Building.h"
 #import "CircleLabel.h"
+#import "TimeLineTableView.h"
 @interface BuildingInformationViewController : UIViewController {
     
     UIView * navBarView;
     CircleLabel * circleLabel;
+    TimeLineTableView * timeline;
 }
 
 @property Building * buildingData;
