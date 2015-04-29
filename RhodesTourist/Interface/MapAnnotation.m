@@ -10,7 +10,8 @@
 
 @implementation MapAnnotation
 @synthesize coordinate, titletext, subtitletext;  
-  
+
+
 - (NSString *)subtitle{  
     return subtitletext;  
 }  
@@ -33,7 +34,7 @@
 -(void)setSubTitle:(NSString*)strSubTitle {  
     self.subtitletext = strSubTitle;  
 }  
-  
+
 -(id)initWithCoordinate:(CLLocationCoordinate2D) c{  
     coordinate=c;  
     return self;  

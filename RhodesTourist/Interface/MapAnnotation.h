@@ -15,9 +15,10 @@
 @interface MapAnnotation : NSObject <MKAnnotation> {
     CLLocationCoordinate2D coordinate;  
     NSString *subtitletext;  
-    NSString *titletext;  
+    NSString *titletext;
+    NSInteger tag;
 }
-@property int tag;
+@property NSInteger tag;
 @property BOOL selected;
 @property  (nonatomic) CLLocationCoordinate2D coordinate;
 @property  NSString *titletext;

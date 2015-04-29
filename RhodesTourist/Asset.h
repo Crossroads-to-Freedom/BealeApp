@@ -13,10 +13,10 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface Asset : NSObject {
-    NSString     * imageUrl;
+    
     UIImage      * assetImage;
 }
-
+@property NSString     * imageUrl;
 @property NSInteger     rds;
 @property UIImageView * thumbnail;
 @property NSInteger     assetType;

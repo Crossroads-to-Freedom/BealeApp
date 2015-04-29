@@ -20,8 +20,8 @@
 
 - (id)initWithImageUrl:(NSString*) url{
     if ((self = [super init])) {
-        imageUrl = url;
-        imageUrl = [imageUrl stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        self.imageUrl = url;
+        self.imageUrl = [self.imageUrl stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         self.assetType = 2;
     }
     return self;
@@ -38,11 +38,11 @@
 - (UIImageView *) assetImageViewWithSize:(CGSize) size
 {
     UIImageView * imageView = [[UIImageView alloc] init];
-    imageView.backgroundColor = [UIColor blueColor];
+    //imageView.backgroundColor = [UIColor blueColor];
     if (!assetImage)
     {
-        NSString * fullUrl = [NSString stringWithFormat:@"http://%@", imageUrl];
-        NSLog(@"Loading %@", fullUrl);
+        NSString * fullUrl = [NSString stringWithFormat:@"http://%@", self.imageUrl];
+        //NSLog(@"Loading %@", fullUrl);
         NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:fullUrl]];
         AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
